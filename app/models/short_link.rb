@@ -1,0 +1,2 @@
+class ShortLink < ApplicationRecord
+end

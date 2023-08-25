@@ -1,0 +1,9 @@
+<h1>home</h1>
+<%= form_tag(static_pages_home_path, method: :post) do %>
+  <%= text_field_tag :link, params[:link] %>
+  <%= submit_tag "Shorten" %>
+<% end %>
+
+<% if @short_link %>
+  <p>https://protected-bayou-67177-def7fae57e65.herokuapp.com/<%= @short_link %></p>
+<% end %>
