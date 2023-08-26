@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Ubuntu&display=swap');
+@import 'font-awesome';
+
+html, body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #F5F2EA;
+  font-family: 'Lobster', sans-serif;
+}
+
+#short-link-wrap{
+  display: flex;
+  flex-direction: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px auto;
+}
+p{
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 16px;
+  padding:1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #eee;
+  margin:0 1rem;
+}
+button{
+  padding: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #eee;
+  cursor: pointer;
+  &:hover{
+    background-color: black;
+    color:white;
+  }
+
+}
+
+h1{
+  font-size: 60px;
+  margin:0;
+}
+
+span{
+  font-size: 20px;
+}
+
+main{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 600px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+form{
+  display:flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+input[type="text"]{
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+
+input[type="submit"]{
+  width: 20%;
+  padding: 10px;
+  margin: 10px auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+  background-color: #F5F2EA;
+  cursor: pointer;
+  &:hover{
+    background-color: black;
+    color:white;
+  }
+}

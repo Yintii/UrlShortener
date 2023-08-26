@@ -1,9 +1,31 @@
-<h1>home</h1>
-<%= form_tag(static_pages_home_path, method: :post) do %>
-  <%= text_field_tag :link, params[:link] %>
-  <%= submit_tag "Shorten" %>
-<% end %>
+<main>
+  <h1>Yintii</h1>
+  <span>Shorten your link</span>
+  <%= form_tag(static_pages_home_path, method: :post) do %>
+    <%= text_field_tag :link, params[:link] %>
+    <%= submit_tag "Shorten" %>
+  <% end %>
+  
+  <% if @short_link %>
+    <div id="short-link-wrap">
+      <p>https://protected-bayou-67177-def7fae57e65.herokuapp.com/<%= @short_link %></p>
+      <button onclick="copyLink()">
+        <%= fa_icon "copy" %>
+      </button>
+    </div>
+  <% end %>
+</main>
 
-<% if @short_link %>
-  <p>https://protected-bayou-67177-def7fae57e65.herokuapp.com/<%= @short_link %></p>
-<% end %>
+<script>
+  function copyLink() {
+    let copyText = document.getElementById("short-link-wrap").textContent;
+    
+    let tempInput = document.createElement("input");
+    tempInput.value = copyText;
+    
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+  }
+</script>
