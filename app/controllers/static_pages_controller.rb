@@ -29,13 +29,13 @@ class StaticPagesController < ApplicationController
         #if the user has shortened more than 50 links in the last day, redirect to the home page
         if session[:links_created] > 50
           redirect_to root_path
-          flash[:notice] = "You have shortened too many links today, please try again tomorrow"
+          flash[:error] = "You have shortened too many links today, please try again tomorrow"
         end
 
         #if the user has shortened more than 20 links in the last hour, redirect to the home page
         if session[:links_created] > 20 && session[:last_shorten] > 1.hour.ago
           redirect_to root_path
-          flash[:notice] = "You have shortened too many links this hour, please try again later"
+          flash[:error] = "You have shortened too many links this hour, please try again later"
         end
 
         #if the user has shortened more than 10 links in the last minute, redirect to the home page

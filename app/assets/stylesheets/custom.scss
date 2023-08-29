@@ -17,7 +17,6 @@ html, body{
   width: 100%;
   max-width: 600px;
   padding: 20px;
-  background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   display: flex;
@@ -27,15 +26,28 @@ html, body{
   z-index: 100;
   &.success{
     border: 1px solid green;
+    box-shadow: 0 0 10px rgba(0,255,0,0.2);
+    background-color: green;
+    color: white
   }
   &.error{
     border: 1px solid red;
+    box-shadow: 0 0 10px rgba(255,0,0,0.2);
+    background-color: red;
+    color: white;
   }
   &.notice{
-    border: 1px solid blue;
+    border: 1px solid yellow;
+    box-shadow: 0 0 10px rgba(255,255,0,0.2);
+    background-color: yellow;
+    color: black;
+
   }
   &.alert{
     border: 1px solid orange;
+    box-shadow: 0 0 10px rgba(255,165,0,0.2);
+    background-color: orange;
+    color: white;
   }
   p{
     margin: 0;
