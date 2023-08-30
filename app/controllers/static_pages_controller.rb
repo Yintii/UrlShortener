@@ -25,6 +25,15 @@ class StaticPagesController < ApplicationController
           session[:last_shorten] ||= Time.now
         end
 
+        #if the submited link is already in the session[:links_created] array, redirect to the home page
+        #check if the submitted link is already in the session[:links_created] array
+        if session[:links_created].any? {|link| link.has_key?(params[:link])}
+          #if it is, find the shortened link associated with the submitted link
+          #and redirect to the home page
+          @short_link = session[:links_created].find {|link| link.has_key?(params[:link])}[params[:link]] 
+          flash[:error] = "You have already shortened this link. We've provided it for you again below."
+        end
+
         #check how many links the user already has shortened and in what time inervals
         #if the user has shortened more than 50 links in the last day, redirect to the home page
         #check if the length of session[:links_created] is greater than 50
@@ -49,8 +58,10 @@ class StaticPagesController < ApplicationController
         
         @db_entry.save
 
-        #add the shortened link to the session[:links_created] array
-        session[:links_created] << params[:link]
+        #add a hash of the shortened link and the associated @short_link to the session[:links_created] array
+        session[:links_created] << {params[:link] => @short_link}
+
+
         session[:last_shorten] = Time.now
       end
     end
