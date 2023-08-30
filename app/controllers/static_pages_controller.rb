@@ -18,49 +18,41 @@ class StaticPagesController < ApplicationController
 
       #if the data is valid, save it to the database
       if @db_entry.valid?
-       
-        #if the user has not shortened a link before, create a new session
-        if session[:links_created] == nil
-          session[:links_created] = 0
-          session[:last_shorten] = Time.now
+
+        session[:first_shorten] ||= Time.now
+        session[:links_created] ||= []
+        if session[:last_shorten] == nil
+          session[:last_shorten] ||= Time.now
         end
 
         #check how many links the user already has shortened and in what time inervals
         #if the user has shortened more than 50 links in the last day, redirect to the home page
-        if session[:links_created] > 50
+        #check if the length of session[:links_created] is greater than 50
+        if session[:links_created].length > 50 && session[:first_shorten] > 1.day.ago
           redirect_to root_path
           flash[:error] = "You have shortened too many links today, please try again tomorrow"
-        end
-
-        #if the user has shortened more than 20 links in the last hour, redirect to the home page
-        if session[:links_created] > 20 && session[:last_shorten] > 1.hour.ago
+        elsif session[:links_created].length > 20 && session[:first_shorten] > 1.hour.ago
           redirect_to root_path
           flash[:error] = "You have shortened too many links this hour, please try again later"
-        end
-
-        #if the user has shortened more than 10 links in the last minute, redirect to the home page
-        if session[:links_created] > 10 && session[:last_shorten] > 1.minute.ago
+        elsif session[:links_created].length > 10 && session[:first_shorten] > 1.minute.ago
           redirect_to root_path
           flash[:notice] = "You have shortened too many links this minute, please try again later"
-        end
-
-        #if the user has shortened a link in the last 5 seconds, redirect to the home page
-        if session[:last_shorten] > 5.seconds.ago
+        elsif session[:last_shorten] > 5.seconds.ago
           redirect_to root_path
           flash[:notice] = "You have shortened a link too recently, please try again later"
         end
       
+        puts "session[:links_created]: #{session[:links_created]}"
+
 
         #save the shortened link to the database
         
         @db_entry.save
-        session[:links_created] = session[:links_created] + 1
-        #if the user has not shortened a link before, create a new session
-        if session[:last_shorten] == nil
-          session[:last_shorten] = Time.now
-        end
+
+        #add the shortened link to the session[:links_created] array
+        session[:links_created] << params[:link]
+        session[:last_shorten] = Time.now
       end
-      #if the data is not valid, redirect to the home page
     end
   end
 
