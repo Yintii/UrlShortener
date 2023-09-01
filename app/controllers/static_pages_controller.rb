@@ -9,7 +9,12 @@ class StaticPagesController < ApplicationController
       #and only allow the user to shorten 10 links per minute
       #and only allow the user to shorten 20 links per hour
       #and only allow the user to shorten 50 links per day
- 
+
+      if params[:link] == ""
+        redirect_to root_path
+        flash[:error] = "You must enter a link to shorten"
+      end
+
 
       @short_link = SecureRandom.hex(3)
       
@@ -27,7 +32,8 @@ class StaticPagesController < ApplicationController
 
         #if the submited link is already in the session[:links_created] array, redirect to the home page
         #check if the submitted link is already in the session[:links_created] array
-        if session[:links_created].any? {|link| link.has_key?(params[:link])}
+        
+        if session[:links_created] != nil && session[:links_created].any? {|link| link.has_key?(params[:link])} && params[:link] != ""
           #if it is, find the shortened link associated with the submitted link
           #and redirect to the home page
           @short_link = session[:links_created].find {|link| link.has_key?(params[:link])}[params[:link]] 
@@ -46,27 +52,16 @@ class StaticPagesController < ApplicationController
         elsif session[:links_created].length > 10 && session[:first_shorten] > 1.minute.ago
           redirect_to root_path
           flash[:notice] = "You have shortened too many links this minute, please try again later"
-        elsif session[:last_shorten] > 5.seconds.ago
+        elsif session[:last_shorten] > 5.seconds.ago && params[:link] != ""
           redirect_to root_path
           flash[:notice] = "You have shortened a link too recently, please try again later"
         end
-      
-        puts "session[:links_created]: #{session[:links_created]}"
-
-
         #save the shortened link to the database
-        
         @db_entry.save
-
         #add a hash of the shortened link and the associated @short_link to the session[:links_created] array
         session[:links_created] << {params[:link] => @short_link}
-
-
         session[:last_shorten] = Time.now
       end
     end
-  end
-
-  def About
   end
 end
