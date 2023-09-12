@@ -38,7 +38,7 @@ class ShortLinksController < ApplicationController
           @db_entry = ShortLink.find_by(short_link: params[:short_link])
           #close db connection
           ActiveRecord::Base.connection.close
-          redirect_to @db_entry.original_link
+          redirect_to @db_entry.original_link, status: 301, allow_other_host: true
         rescue ActiveRecord::RecordNotFound => e
           #if the random hex is not unique, generate a new one and try again
           redirect_to root_path
