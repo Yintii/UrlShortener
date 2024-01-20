@@ -60,8 +60,17 @@ button {
   border-radius: 5px;
   border: 1px solid #ccc;
   background-color: #eee;
-  color: black;
   cursor: pointer;
+  &:hover {
+    background-color: black;
+    color: white;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  button{
+    color: black !important;
+  }
 }
 
 #short-link-wrap{
@@ -161,6 +170,7 @@ input[type="submit"]{
   }
   input[type="submit"]{
     width: 40%;
+    color: black;
   }
   #short-link-wrap{
     flex-direction: column;
