@@ -5,7 +5,6 @@ ruby "3.2.4"
 
 gem "rails", "~> 7.2.0"
 gem "sprockets-rails"
-gem "sqlite3", "~> 1.4"
 gem "puma", "~> 5.0"
 #gem "bootstrap-sass"
 gem "importmap-rails"
@@ -22,9 +21,14 @@ gem "sassc-rails"
 gem "font-awesome-rails"
 
 
+group :production do
+  gem "pg"
+end
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", ">= 1.9.0"
+  gem "sqlite3", "~> 1.4"
 end
 
 group :development do
@@ -54,4 +58,5 @@ end
 group :production do
   gem "pg"
 end
+
 
