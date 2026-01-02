@@ -1,15 +1,25 @@
-if ENV["RUN_MIGRATIONS_ON_STARTUP"] == "true"
-  Rails.logger.info "Running database migrations on startup"
+# config/initializers/run_migrations.rb
 
-  begin
-    ActiveRecord::Migration.maintain_test_schema!
+if ENV['RUN_MIGRATIONS_ON_STARTUP'] == 'true'
+  Rails.application.config.after_initialize do
+    begin
+      puts "🟢 Running database migrations..."
 
-    ActiveRecord::Base.connection.migration_context.migrate
-  rescue => e
-    Rails.logger.error "Migration failed: #{e.message}"
-    raise e
+      # Use MigrationContext directly from ActiveRecord::Base
+      migrations_paths = ActiveRecord::Migrator.migrations_paths
+      ActiveRecord::MigrationContext.new(
+        migrations_paths,
+        ActiveRecord::SchemaMigration
+      ).migrate
+
+      puts "✅ Migrations complete"
+    rescue => e
+      puts "❌ Migration failed: #{e.message}"
+      raise e
+    end
   end
 end
+
 
 
 
