@@ -4,14 +4,8 @@ if ENV['RUN_MIGRATIONS_ON_STARTUP'] == 'true'
     begin
       puts "🟢 Running database migrations..."
 
-      # Get the migration paths (usually db/migrate)
-      migrations_paths = ActiveRecord::Migrator.migrations_paths
-
-      # Create a MigrationContext from paths and the schema migration class
-      migration_context = ActiveRecord::MigrationContext.new(
-        migrations_paths,
-        ActiveRecord::Base.connection.schema_migration
-      )
+      # Rails 7.2 way to get the migration context
+      migration_context = ActiveRecord::Base.connection.migration_context
 
       # Run all pending migrations
       migration_context.migrate
