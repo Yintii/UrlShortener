@@ -13,5 +13,5 @@ services:
           property: connectionString
 
 databases:
-  - name: yintii-db
+  - name: yintii-psql
     ipAllowList: []
