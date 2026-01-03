@@ -272,12 +272,7 @@ span {
 }
 
 main {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80%;
-  max-width: 600px;
+  max-width: 80%;
   padding: 20px;
   background-color: #043b5c;
   color: white;
@@ -287,6 +282,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
   form{
     width:100%;
     display: flex;
