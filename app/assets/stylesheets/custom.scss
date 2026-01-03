@@ -22,6 +22,10 @@ h3 {
   padding: 1rem;
 }
 
+.max-width-90 {
+  max-width: 90%;
+}
+
 .rounded-corners {
   border-radius: 15px;
 }
@@ -32,6 +36,14 @@ h3 {
 
 .column {
   flex-direction: column;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
 }
 
 .wrap {
@@ -119,6 +131,23 @@ a:visited {
   p {
     margin: 0;
     font-size: 20px;
+  }
+}
+
+.styled-form {
+  display: flex;
+  flex-direction: column;
+  background-color: #043b5c;
+  padding: 2rem;
+  border-radius: 10px;
+  justify-content: center;
+  width: 65%;
+  margin: 0 auto;
+  input{
+    margin:5px;
+    padding:10px;
+    border-radius:5px;
+    border:none;
   }
 }
 
@@ -258,12 +287,11 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+  form{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 input[type="text"] {
