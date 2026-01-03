@@ -1,9 +1,8 @@
-// Entry point for Stimulus
 import { Application } from "@hotwired/stimulus"
-import { definitionsFromContext } from "@hotwired/stimulus-loading"
+import { definitionsFromContext } from "@hotwired/stimulus-importmap-autoloader"
 
 const application = Application.start()
 
-// Automatically load all controllers from controllers folder
+// Automatically load all controllers from app/javascript/controllers
 const context = require.context("./controllers", true, /\.js$/)
 application.load(definitionsFromContext(context))
