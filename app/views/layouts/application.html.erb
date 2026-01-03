@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>UrlShortener</title>
+    <title>Yintii | UrlShortener</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="google-adsense-account" content="ca-pub-4116671122586959">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
+
+    <!-- Importmap for Rails/Stimulus -->
+    <%= javascript_importmap_tags %>
   </head>
 
   <body>
@@ -25,6 +28,44 @@
     <% if flash[:error] %>
       <div class="flash error"><%= flash[:error] %></div>
     <% end %>
+
+    <header>
+      <div id="brand">
+        <%= link_to "Yintii", root_path %>
+      </div>
+      <div id="menu" class="flex flex-end" data-controller="navbar">
+        <div id="hamburger-menu" data-action="click->navbar#toggle">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </div>
+        <nav 
+          class="hidden flex column bg-blue-yintii m-1 p-1 rounded-corners"
+          data-navbar-target="menu"
+          >
+          <%= link_to "Terms of Service", "#" %>
+          <%= link_to "About", "#" %>
+          <% if user_signed_in? %>
+            <%= link_to "Logout", destroy_user_path, method: :delete %>
+          <% else %>
+            <%= link_to "Login", new_user_session_path %>
+            <%= link_to "Sign up", new_user_registration_path %>
+          <% end %>
+        </nav>
+      </div>
+    </header>
+
+    <% if user_signed_in? %>
+      <h2 id="greeting">Hello, <%= current_user.name %></h2>
+    <% else %>
+      <div class="bg-blue container column">
+        <h2>Want to save your links?</h2>
+        <p>Make an account and we'll save your history</p>
+        <%= link_to "Sign Up", new_user_registration_path, class: "bg-blue-yintii p-1 rounded-corners"  %>
+      </div>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
+

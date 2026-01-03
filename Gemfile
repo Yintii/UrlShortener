@@ -19,7 +19,7 @@ gem "bootsnap", require: false
 
 gem "sassc-rails"
 gem "font-awesome-rails"
-
+gem "devise"
 
 group :production do
   gem "pg"
@@ -28,7 +28,7 @@ end
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", ">= 1.9.0"
-  gem "sqlite3", "~> 1.4"
+  gem "sqlite3", "~> 1.5"
 end
 
 group :development do
@@ -53,10 +53,3 @@ group :test do
   gem "guard",                    "2.18.0"
   gem "guard-minitest",           "2.4.6"
 end
-
-
-group :production do
-  gem "pg"
-end
-
-
