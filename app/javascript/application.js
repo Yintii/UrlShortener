@@ -1,8 +1,6 @@
+// app/javascript/application.js
 import { Application } from "@hotwired/stimulus"
-import { definitionsFromContext } from "@hotwired/stimulus-importmap-autoloader"
+import NavbarController from "./controllers/navbar_controller.js"
 
 const application = Application.start()
-
-// Automatically load all controllers from app/javascript/controllers
-const context = require.context("./controllers", true, /\.js$/)
-application.load(definitionsFromContext(context))
+application.register("navbar", NavbarController)
