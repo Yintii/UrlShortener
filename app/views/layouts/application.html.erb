@@ -46,7 +46,7 @@
           <%= link_to "Terms of Service", "#" %>
           <%= link_to "About", "#" %>
           <% if user_signed_in? %>
-            <%= link_to "Logout", destroy_user_path, method: :delete %>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete %>
           <% else %>
             <%= link_to "Login", new_user_session_path %>
             <%= link_to "Sign up", new_user_registration_path %>
@@ -57,7 +57,7 @@
 
     <% if current_page?(root_path) %>
       <% if user_signed_in? %>
-        <h2 id="greeting">Hello, <%= current_user.name %></h2>
+        <h2 id="greeting">Hello, <%= current_user.email %></h2>
       <% else %>
         <div class="bg-blue container column">
           <h2>Want to save your links?</h2>
