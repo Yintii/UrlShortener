@@ -9,6 +9,8 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
 
+    <!-- rails-ujs via asset pipeline (UMD) so data-method works -->
+    <%= javascript_include_tag 'rails-ujs', 'data-turbo-track': 'reload' %>
     <!-- Importmap for Rails/Stimulus -->
     <%= javascript_importmap_tags %>
   </head>
