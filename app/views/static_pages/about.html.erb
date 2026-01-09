@@ -1,0 +1,43 @@
+<main>
+  <div class="container">
+    <h1>About Yintii</h1>
+    
+    <section>
+      <h2>What is Yintii?</h2>
+      <p>
+        Yintii is a simple and elegant URL shortener designed to make sharing links easier and cleaner. 
+        Convert long, cumbersome URLs into short, memorable links that are easy to share across social media, 
+        email, and other platforms.
+      </p>
+    </section>
+
+    <section>
+      <h2>Why Use Yintii?</h2>
+      <ul>
+        <li><strong>Simple:</strong> Just paste your long URL and get a short one instantly</li>
+        <li><strong>Free:</strong> No sign-up required for basic usage</li>
+        <li><strong>Trackable:</strong> Create an account to save and manage your shortened links</li>
+        <li><strong>Reliable:</strong> Our links are permanent and won't expire</li>
+        <li><strong>Clean:</strong> No ads, no tracking, just simple URL shortening</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>How It Works</h2>
+      <ol>
+        <li>Paste your long URL into the input field</li>
+        <li>Click the "Shorten" button</li>
+        <li>Copy your new short link and share it anywhere</li>
+        <li>Create an account to track and manage your links</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Get Started</h2>
+      <p>
+        Ready to shorten your links? <%= link_to "Create an account", new_user_registration_path, class: "shared-link" %> 
+        or start shortening links right away on our <%= link_to "home page", root_path, class: "shared-link" %>.
+      </p>
+    </section>
+  </div>
+</main>

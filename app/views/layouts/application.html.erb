@@ -45,8 +45,8 @@
           class="hidden flex column bg-blue-yintii m-1 p-1 rounded-corners"
           data-navbar-target="menu"
           >
-          <%= link_to "Terms of Service", "#" %>
-          <%= link_to "About", "#" %>
+          <%= link_to "Terms of Service", terms_of_service_path %>
+          <%= link_to "About", about_path %>
           <% if user_signed_in? %>
             <%= link_to "Logout", destroy_user_session_path, method: :delete %>
           <% else %>
