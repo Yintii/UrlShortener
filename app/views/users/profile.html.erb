@@ -1,0 +1,150 @@
+<main>
+  <div class="container">
+    <h1>My Profile</h1>
+    
+    <div class="profile-header">
+      <h2>Welcome, <%= @user.email %></h2>
+      <p>You have <%= @short_links.count %> shortened links</p>
+    </div>
+
+    <% if @short_links.any? %>
+      <div class="links-table">
+        <h2>Your Shortened Links</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Original URL</th>
+              <th>Short Link</th>
+              <th>Created</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @short_links.each do |link| %>
+              <tr>
+                <td class="original-link">
+                  <a href="<%= link.original_link %>" target="_blank" rel="noopener noreferrer">
+                    <%= truncate(link.original_link, length: 50) %>
+                  </a>
+                </td>
+                <td class="short-link">
+                  <%= link_to short_link_redirect_path(link.short_link) do %>
+                    <%= link.short_link %>
+                  <% end %>
+                </td>
+                <td class="created-date">
+                  <%= link.created_at.strftime("%b %d, %Y") %>
+                </td>
+                <td class="copy-btn">
+                  <button class="copy-to-clipboard" data-link="<%= short_link_redirect_url(link.short_link) %>">
+                    Copy
+                  </button>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    <% else %>
+      <div class="empty-state">
+        <p>You haven't created any shortened links yet.</p>
+        <p><%= link_to "Create one now", root_path, class: "shared-link" %></p>
+      </div>
+    <% end %>
+  </div>
+
+  <script>
+    document.querySelectorAll('.copy-to-clipboard').forEach(button => {
+      button.addEventListener('click', function() {
+        const link = this.getAttribute('data-link');
+        navigator.clipboard.writeText(link).then(() => {
+          const originalText = this.textContent;
+          this.textContent = 'Copied!';
+          setTimeout(() => {
+            this.textContent = originalText;
+          }, 2000);
+        });
+      });
+    });
+  </script>
+
+  <style>
+    .profile-header {
+      background-color: #043b5c;
+      padding: 2rem;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+    }
+
+    .links-table {
+      margin-top: 2rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #043b5c;
+    }
+
+    thead {
+      background-color: #032b44;
+    }
+
+    th, td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid #555;
+    }
+
+    th {
+      font-weight: bold;
+      color: #ffd700;
+    }
+
+    tr:hover {
+      background-color: #054471;
+    }
+
+    .original-link a {
+      color: #87ceeb;
+      word-break: break-word;
+    }
+
+    .short-link a {
+      color: #ffd700;
+      font-weight: bold;
+    }
+
+    .created-date {
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    .copy-btn button {
+      background-color: #ffd700;
+      color: black;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 300ms;
+      font-weight: bold;
+    }
+
+    .copy-btn button:hover {
+      background-color: #ffed4e;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 3rem;
+      background-color: #043b5c;
+      border-radius: 10px;
+    }
+
+    .empty-state p {
+      font-size: 1.1rem;
+      margin: 1rem 0;
+    }
+  </style>
+</main>

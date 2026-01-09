@@ -11,6 +11,7 @@ class ShortLinksController < ApplicationController
       @short_link = SecureRandom.hex(3)
       
       @db_entry = ShortLink.new(original_link: params[:link], short_link: @short_link)
+      @db_entry.user = current_user if user_signed_in?
 
       if @db_entry.valid?
         begin
