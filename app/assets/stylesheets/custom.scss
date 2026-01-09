@@ -9,6 +9,7 @@ body {
   background-color: #392e4a;
   color: white;
   font-family: 'Ubuntu', sans-serif;
+  min-height: 100vh;
 }
 
 h1,
@@ -220,6 +221,7 @@ button {
   border: 1px solid #ccc;
   background-color: #eee;
   cursor: pointer;
+  transition: 500ms;
 
   &:hover {
     background-color: black;
@@ -247,6 +249,16 @@ button {
   }
 }
 
+#cta-signup{
+  font-size: 20px;
+  transition: 500ms;
+  background-color: #043b5c;
+  color:white;  
+  &:hover{
+    background-color: white;
+    color:black;
+  }
+}
 
 button {
   padding: 1rem;
@@ -254,6 +266,7 @@ button {
   border: 1px solid #ccc;
   background-color: #eee;
   cursor: pointer;
+  transition: 500ms;
 
   &:hover {
     background-color: black;
@@ -300,6 +313,24 @@ input[type="text"] {
   box-sizing: border-box;
 }
 
+.shared-links-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .shared-link{
+    border-radius:15px;
+    background-color: #043b5c;
+    color:white;
+    transition: 500ms;
+    &:hover{
+      background-color: white;
+      color:black;
+  }
+  &:visited{
+    color:white;
+  }
+  }
+}
 
 input[type="submit"] {
   width: 20%;
@@ -311,6 +342,7 @@ input[type="submit"] {
   box-sizing: border-box;
   background-color: #F5F2EA;
   cursor: pointer;
+  transition: 500ms;
 
   &:hover {
     background-color: black;

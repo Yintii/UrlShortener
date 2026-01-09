@@ -61,10 +61,10 @@
       <% if user_signed_in? %>
         <h2 id="greeting">Hello, <%= current_user.email %></h2>
       <% else %>
-        <div class="bg-blue container column">
+        <div class="bg-blue container flex column align-center p-2 rounded-corners">
           <h2>Want to save your links?</h2>
           <p>Make an account and we'll save your history</p>
-          <%= link_to "Sign Up", new_user_registration_path, class: "bg-blue-yintii p-1 rounded-corners"  %>
+          <%= link_to "Sign Up", new_user_registration_path, id: "cta-signup", class: "bg-blue-yintii p-1 rounded-corners"  %>
         </div>
       <% end %>
     <% end %>
