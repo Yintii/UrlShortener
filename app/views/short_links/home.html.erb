@@ -2,14 +2,14 @@
   <h1>Yintii</h1>
   <span>Shorten your link</span>
   <%= form_tag(short_link_home_path, method: :post) do %>
-    <%= text_field_tag :link, params[:link] %>
+    <%= text_field_tag :link, params[:link], placeholder: "Enter URL to shorten" %>
     <%= submit_tag "Shorten" %>
   <% end %>
   
-  <% if @short_link %>
+  <% if params[:created_short_link] || @short_link %>
     <div id="short-link-wrap">
-      <p>http://yintii.com/<%= @short_link %></p>
-      <button onclick="copyLink()">
+      <p id="shortened-url">http://yintii.com/<%= params[:created_short_link] || @short_link %></p>
+      <button id="copy-btn" onclick="copyLink()">
         <%= fa_icon "copy" %>
       </button>
     </div>
@@ -18,14 +18,28 @@
 
 <script>
   function copyLink() {
-    let copyText = document.getElementById("short-link-wrap").textContent;
+    const urlElement = document.getElementById('shortened-url');
+    const button = document.getElementById('copy-btn');
     
-    let tempInput = document.createElement("input");
-    tempInput.value = copyText;
+    if (!urlElement) return;
     
-    document.body.appendChild(tempInput);
-    tempInput.select();
-    document.execCommand("copy");
-    document.body.removeChild(tempInput);
+    const url = urlElement.textContent;
+    
+    navigator.clipboard.writeText(url).then(() => {
+      const originalText = button.innerHTML;
+      button.innerHTML = 'Copied!';
+      setTimeout(() => {
+        button.innerHTML = originalText;
+      }, 2000);
+    }).catch(err => {
+      console.error('Failed to copy:', err);
+      // Fallback for older browsers
+      const tempInput = document.createElement('input');
+      tempInput.value = url;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempInput);
+    });
   }
 </script>

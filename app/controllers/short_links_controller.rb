@@ -17,12 +17,17 @@ class ShortLinksController < ApplicationController
         begin
           @db_entry.save
           ActiveRecord::Base.connection.close
+          flash[:success] = "Link shortened successfully!"
+          redirect_to root_path(created_short_link: @short_link)
+          return
         rescue ActiveRecord::RecordNotUnique => e
           #if the random hex is not unique, generate a new one and try again
           @short_link = SecureRandom.hex(3)
           @db_entry.short_link = @short_link
           retry
         end
+      else
+        flash[:error] = "Error creating short link"
       end
     end #end if request.post?
 

@@ -225,10 +225,16 @@ button {
 
   &:hover {
     background-color: black;
-    color: white;
+    color: rgb(219, 219, 219);
   }
 }
 
+#shortened-url{
+  padding:1rem;
+  margin:0 1rem;
+  background-color: white;
+  border-radius:15px;
+}
 
 
 @media only screen and (max-width: 768px) {
