@@ -6,6 +6,7 @@ class ShortLinksController < ApplicationController
       if params[:link] == ""
         redirect_to root_path
         flash[:error] = "You must enter a link to shorten"
+        return
       end
 
       @short_link = SecureRandom.hex(3)
