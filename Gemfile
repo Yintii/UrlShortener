@@ -1,11 +1,11 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.2.4"
+ruby "~> 3.3.0"
 
 gem "rails", "~> 7.2.0"
 gem "sprockets-rails"
-gem "puma", "~> 5.0"
+gem "puma"
 #gem "bootstrap-sass"
 gem "importmap-rails"
 gem "turbo-rails"
@@ -13,13 +13,14 @@ gem "stimulus-rails"
 gem "jbuilder"
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
-gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
+gem "tzinfo-data", platforms: %i[ windows jruby ]
 
 gem "bootsnap", require: false
 
 gem "sassc-rails"
 gem "font-awesome-rails"
 gem "devise"
+gem "postmark-rails"
 
 group :production do
   gem "pg"
@@ -46,10 +47,9 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
-  gem "webdrivers"
-  gem "rails-controller-testing", "1.0.5"
-  gem "minitest",                 "5.15.0"
-  gem "minitest-reporters",       "1.5.0"
-  gem "guard",                    "2.18.0"
-  gem "guard-minitest",           "2.4.6"
+  gem "rails-controller-testing"
+  gem "minitest"           
+  gem "minitest-reporters"
+  gem "guard"
+  gem "guard-minitest"
 end

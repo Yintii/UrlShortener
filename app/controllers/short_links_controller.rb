@@ -1,4 +1,7 @@
 class ShortLinksController < ApplicationController
+  rate_limit to: 10, within: 1.minute, only: :home,
+  by: -> { request.domain },
+  with: -> { redirect_to root_path, alert: "Too many requests, try again in 10 minutes."}
   def home
     #if the user has submitted a link, generate a random hex and save it to the database
     if request.post?
