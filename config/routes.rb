@@ -1,5 +1,5 @@
 Rails.application.routes.draw do  
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations'}
   root "short_links#home"
   get '/about', to: 'static_pages#about', as: 'about'
   get '/terms', to: 'static_pages#terms', as: 'terms_of_service'
