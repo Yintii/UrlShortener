@@ -22,6 +22,8 @@ gem "font-awesome-rails"
 gem "devise"
 gem "postmark-rails"
 
+gem "log4r"
+
 group :production do
   gem "pg"
 end
