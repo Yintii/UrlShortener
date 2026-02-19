@@ -8,10 +8,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super do |resource|
       if resource.persisted?
         #success
-        Rails.logger.info "New signup: user id #{resource.id} registered with #{resource.email} at #{Time.current}"
+        puts "success"
+        # Rails.logger.info "New signup: user id #{resource.id} registered with #{resource.email} at #{Time.current}"
       else
         #failure
-        Rails.logger.warn "Failed signup: #{Time.current} - Errors: #{resource.errors.full_messages.join(', ')}"
+        puts "failure"
+        # Rails.logger.warn "Failed signup: #{Time.current} - Errors: #{resource.errors.full_messages.join(', ')}"
       end
     end
   end
