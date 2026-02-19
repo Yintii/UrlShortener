@@ -92,9 +92,9 @@ Rails.application.configure do
   # Use a different logger for distributed setups.
   # require "syslog/logger"
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new "app-name")
-  # config.logger = Logger.new(STDOUT)
-  # config.logger = Log4r::Logger.new("Application Log")
-  # config.log_level = :warn
+  config.logger = Logger.new(STDOUT)
+  config.logger = Log4r::Logger.new("Application Log")
+  config.log_level = :warn
 
 
   if ENV["RAILS_LOG_TO_STDOUT"].present?
