@@ -6,7 +6,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   
   def create
     super do |resource|
-      if resource persisted?
+      if resource.persisted?
         #success
         Rails.logger.info "New signup: user id #{resource.id} registered with #{resource.email} at #{Time.current}"
       else
