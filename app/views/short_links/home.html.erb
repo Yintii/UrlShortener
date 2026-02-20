@@ -1,6 +1,4 @@
 <main>
-  <h1>Yintii</h1>
-  <span>Shorten your link</span>
   <%= form_tag(short_link_home_path, method: :post) do %>
     <%= text_field_tag :link, params[:link], placeholder: "Enter URL to shorten" %>
     <%= submit_tag "Shorten" %>
