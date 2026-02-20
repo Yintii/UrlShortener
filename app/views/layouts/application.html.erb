@@ -42,9 +42,14 @@
           <span class="hamburger-line"></span>
         </div>
         <nav 
-          class="hidden flex column bg-blue-yintii m-1 p-1 rounded-corners"
+          class="hidden flex column"
           data-navbar-target="menu"
           >
+          <div id="menu-x" data-action="click->navbar#toggle">
+            <span class="x-line"></span>
+            <span class="x-line"></span>
+          </div>
+          
           <%= link_to "Terms of Service", terms_of_service_path %>
           <%= link_to "About", about_path %>
           <% if user_signed_in? %>
