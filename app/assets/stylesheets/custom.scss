@@ -248,6 +248,9 @@ button {
   }
 }
 
+//side content 100% mobile buton 30% on the right for tablet and desktop
+
+
 #short-link-wrap {
   display: flex;
   flex-direction: row nowrap;
@@ -300,9 +303,8 @@ main {
   border-radius: 5px;
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
   form{
-    width:100%;
+    width:90dvw;
     display: flex;
     flex-direction: column;
   }

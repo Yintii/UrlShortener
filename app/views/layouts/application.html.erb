@@ -61,15 +61,18 @@
       </div>
     </header>
 
-    <% if current_page?(root_path) && !user_signed_in? %>
-      <div class="bg-blue container flex column align-center p-2 rounded-corners">
-        <h2>Want to save your links?</h2>
-        <p>Make an account and we'll save your history</p>
-        <%= link_to "Sign Up", new_user_registration_path, id: "cta-signup", class: "bg-blue-yintii p-1 rounded-corners"  %>
-      </div>
-    <% end %>
-
+  <main>
+    <%= yield %>
     <div id="side-content">
+      <% if current_page?(root_path) && !user_signed_in? %>
+        <div class="bg-blue container flex column align-center p-2 rounded-corners">
+          <h2>Want to save your links?</h2>
+          <p>Make an account and we'll save your history</p>
+          <%= link_to "Sign Up", new_user_registration_path, id: "cta-signup", class: "bg-blue-yintii p-1 rounded-corners"  %>
+        </div>
+      <% end %>
+    
+
       <div id="ads">
         <!-- Google AdSense Code -->
         <ins class="adsbygoogle"
@@ -82,8 +85,8 @@
           (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
       </div>
-    </div>
-    <%= yield %>
+    </div>  
+  </main>
   </body>
 </html>
 
