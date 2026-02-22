@@ -1,4 +1,4 @@
-<main>
+
   <%= form_tag(short_link_home_path, method: :post) do %>
     <%= text_field_tag :link, params[:link], placeholder: "Enter URL to shorten" %>
     <%= submit_tag "Shorten" %>
@@ -12,7 +12,7 @@
       </button>
     </div>
   <% end %>
-</main>
+
 
 <script>
   function copyLink() {

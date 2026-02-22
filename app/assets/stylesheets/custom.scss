@@ -74,13 +74,10 @@ a:hover {
   color: yellow;
 }
 
-a:visited {
-  color: black;
-}
 
 .flash {
   position: absolute;
-  top: 1rem;
+  top: 2rem;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
@@ -130,19 +127,10 @@ a:visited {
 }
 
 .styled-form {
-  display: flex;
-  flex-direction: column;
-  background-color: black;
-  padding: 2rem;
-  border-radius: 10px;
-  justify-content: start;
-  width: 65%;
-  margin: 0 auto;
   input{
     margin:5px;
     padding:10px;
     border-radius:5px;
-    border:none;
   }
 }
 
@@ -167,6 +155,9 @@ header {
     align-items: end;
     height: 100vh;
     transition: 1s;
+    a{
+      padding: 0.5rem;
+    }
     
     #menu-x{
       position: absolute;
@@ -214,6 +205,11 @@ header {
     font-size: 28px;
     flex: 1;
     font-family: 'Lobster', sans-serif;
+    a{
+      &:visited {
+        color: black;
+      }
+    }
   }
 
   #menu {
@@ -283,10 +279,11 @@ button {
 #short-link-wrap {
   display: flex;
   flex-direction: row nowrap;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  margin: 20px auto;
-
+  background-color: #ccc;
+  padding:1rem;
+  color:white;
   p {
     color: black;
   }
@@ -329,21 +326,23 @@ span {
 }
 
 main {
-  margin:1rem;
-  padding:1rem;
-  max-width: 95dvw;
+  max-width: 100dvw;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
   form{
-    width:90dvw;
     display: flex;
     flex-direction: column;
+    margin:1rem;
+    padding:1rem;
+    *{
+      margin: 0 auto;
+      width:90%;
+    }
   }
 }
 
 input[type="text"] {
-  width: 80%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -352,21 +351,12 @@ input[type="text"] {
 }
 
 .shared-links-container{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  .shared-link{
-    border-radius:15px;
-    background-color: black;
-    color:white;
-    transition: 500ms;
-    &:hover{
-      background-color: white;
-      color:black;
-  }
-  &:visited{
-    color:white;
-  }
+  display:flex;
+  flex-flow:column nowrap;
+  margin: 0 auto;
+  width:90%;
+  *{
+    margin: 0.5rem;
   }
 }
 
@@ -388,21 +378,18 @@ input[type="submit"] {
   }
 }
 
-@media screen and (max-width: 600px) {
-  main {
-    width: 90%;
-  }
-
-  input[type="submit"] {
-    width: 40%;
-    color: black;
-  }
-
-  #short-link-wrap {
-    flex-direction: column;
-  }
-
-  button {
-    margin: 10px 0;
-  }
+input[type="submit"] {
+  width: 95%;
+  color: black;
 }
+
+input[type="checkbox"] {
+  width: unset;
+  margin: 10px;
+}
+
+
+button {
+  margin: 10px 0;
+}
+

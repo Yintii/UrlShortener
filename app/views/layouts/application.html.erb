@@ -67,13 +67,21 @@
     </header>
 
   <main>
-    <%= yield %>
+    <div id="main-content">
+      <%= yield %>
+    </div>
     <div id="side-content">
       <% if current_page?(root_path) && !user_signed_in? %>
-        <div class="bg-blue container flex column align-center p-2 rounded-corners">
+        <div class="container flex column align-center p-2 rounded-corners">
           <h2>Want to save your links?</h2>
           <p>Make an account and we'll save your history</p>
           <%= link_to "Sign Up", new_user_registration_path, id: "cta-signup", class: "bg-blue-yintii p-1 rounded-corners"  %>
+        </div>
+      <% elsif current_page?(root_path) %>
+        <div class="container flex column align-center p-2 rounded-corners">
+          <h2>Welcome back, <%= current_user.email %>!</h2>
+          <p>Check your profile to see your link history</p>
+          <%= link_to "Go to Profile", user_profile_path, id: "cta-profile", class: "bg-green-yintii p-1 rounded-corners"  %>
         </div>
       <% end %>
     
