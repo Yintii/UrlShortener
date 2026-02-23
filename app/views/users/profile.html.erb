@@ -22,7 +22,7 @@
                 </div>
                 <%= link_to "Analytics", short_link_analytics_path(link) %>
                 <button class="copy-to-clipboard" data-link="https://yintii.com/<%= link.short_link %>">
-                  <%= fa_icon "copy" %>
+                  <i class="fa-solid fa-copy"></i>
                 </button>
               </div>
             <% end %>
@@ -42,10 +42,10 @@
       button.addEventListener('click', function() {
         const link = this.getAttribute('data-link');
         navigator.clipboard.writeText(link).then(() => {
-          const originalText = this.textContent;
-          this.textContent = 'Copied!';
+          const originalHTML = this.innerHTML;
+          this.innerHTML = 'Copied!';
           setTimeout(() => {
-            this.textContent = originalText;
+            this.innerHTML = originalHTML;
           }, 2000);
         });
       });

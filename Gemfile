@@ -18,7 +18,7 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "bootsnap", require: false
 
 gem "sassc-rails"
-gem "font-awesome-rails"
+
 gem "devise"
 gem "postmark-rails"
 

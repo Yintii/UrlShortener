@@ -11,14 +11,19 @@
       <span class="value"><%= @unique_ips %></span>
     </div>
   </div>
-  
-  <%= debug @clicks_by_day %>
 
   <h2>Clicks Over Time</h2>
   <%= turbo_frame_tag "clicks_chart" do %>
     <div data-controller="chart">
       <canvas data-chart-target="canvas"
               data-clicks="<%= @clicks_by_day.to_json %>">
+      </canvas>
+    </div>
+    
+    <div data-controller="donut" class="relative h-64 w-full">
+      <canvas data-donut-target="canvas"
+              data-unique="<%= @unique_ips %>"
+              data-total="<%= @click_count %>">
       </canvas>
     </div>
   <% end %>
