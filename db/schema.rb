@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_02_23_172938) do
+ActiveRecord::Schema[7.2].define(version: 2026_02_23_175437) do
+  create_table "link_clicks", force: :cascade do |t|
+    t.integer "short_link_id", null: false
+    t.string "ip_address"
+    t.string "user_agent"
+    t.string "referrer"
+    t.datetime "clicked_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.index ["clicked_at"], name: "index_link_clicks_on_clicked_at"
+    t.index ["short_link_id"], name: "index_link_clicks_on_short_link_id"
+  end
+
   create_table "short_links", force: :cascade do |t|
     t.string "original_link"
     t.string "short_link"
@@ -38,5 +48,6 @@ ActiveRecord::Schema[7.2].define(version: 2026_02_23_172938) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "link_clicks", "short_links"
   add_foreign_key "short_links", "users"
 end

@@ -1,6 +1,11 @@
 Rails.application.routes.draw do  
   devise_for :users, controllers: { registrations: 'users/registrations'}
   root "short_links#home"
+  
+  resources :short_links do
+    resource :analytics, only: [:show]
+  end
+  
   get '/about', to: 'static_pages#about', as: 'about'
   get '/terms', to: 'static_pages#terms', as: 'terms_of_service'
   get '/profile', to: 'users#profile', as: 'user_profile'

@@ -42,7 +42,11 @@ class ShortLinksController < ApplicationController
         begin
           @db_entry = ShortLink.find_by(short_link: params[:short_link])
           puts "Recording click..."
-          @db_entry.record_click!
+          @db_entry.record_click!(
+            ip_address: request.remote_ip,
+            referrer: request.referrer,
+            user_agent: request.user_agent
+          )
           ActiveRecord::Base.connection.close
           redirect_to @db_entry.original_link, status: 301, allow_other_host: true
           

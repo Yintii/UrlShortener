@@ -20,6 +20,7 @@
                     <% end %>     
                   </div>
                 </div>
+                <%= link_to "Analytics", short_link_analytics_path(link) %>
                 <button class="copy-to-clipboard" data-link="https://yintii.com/<%= link.short_link %>">
                   <%= fa_icon "copy" %>
                 </button>
