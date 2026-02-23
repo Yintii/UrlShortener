@@ -17,7 +17,7 @@ html, body {
   padding: 0;
   width: 100vw;
   min-height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
   box-sizing: border-box;
   font-family: "Ubuntu", sans-serif;
 }
