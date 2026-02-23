@@ -333,7 +333,7 @@ main {
   form{
     display: flex;
     flex-direction: column;
-    padding: 0rem 2rem;
+    padding: 1rem 2rem;
   }
 }
 
@@ -393,3 +393,38 @@ button {
   margin: 10px 0;
 }
 
+@media only screen and (min-width: 768px) {
+  main {
+    padding: 0 1rem;
+    form{
+      width: 60%;
+      margin: 2rem auto;
+    }
+  }
+
+  header{
+    #menu{
+      #hamburger-menu{
+        display: none;
+      }
+    }
+    nav{
+      display: flex !important;
+      flex-flow:row nowrap !important;
+      padding: unset;
+      position: unset;
+      height: unset;
+      flex-direction: row;
+      justify-content: flex-end;
+      background-color: unset;
+      #menu-x{
+        display: none;
+      }
+      a{
+        color:black !important;
+        font-size:14px;
+      }
+    }
+  }
+
+}
