@@ -41,8 +41,11 @@ class ShortLinksController < ApplicationController
         #try catch block to catch any errors that may occur when searching the database
         begin
           @db_entry = ShortLink.find_by(short_link: params[:short_link])
+          puts "Recording click..."
+          @db_entry.record_click!
           ActiveRecord::Base.connection.close
           redirect_to @db_entry.original_link, status: 301, allow_other_host: true
+          
         rescue ActiveRecord::RecordNotFound => e
           #if the random hex is not found, redirect to the home page and display an error
           redirect_to root_path

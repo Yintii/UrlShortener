@@ -10,28 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_02_18_200546) do
+ActiveRecord::Schema[7.2].define(version: 2026_02_23_172938) do
   create_table "short_links", force: :cascade do |t|
     t.string "original_link"
     t.string "short_link"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.integer "click_count", default: 0, null: false
     t.index ["user_id"], name: "index_short_links_on_user_id"
-  end
-
-  create_table "shorten_links", force: :cascade do |t|
-    t.string "givenLink"
-    t.string "shortenedLink"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "shortened_links", force: :cascade do |t|
-    t.string "givenLink"
-    t.string "shortenedLink"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
