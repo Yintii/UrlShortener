@@ -3,3 +3,48 @@ h2,
 h3 {
   font-family: 'Lobster', sans-serif;
 }
+
+a {
+  text-decoration: none;
+  &:hover {
+      color: yellow;
+    }
+}
+
+h1 {
+  font-size: 60px;
+  margin: 0;
+}
+
+span {
+  font-size: 20px;
+}
+
+main {
+  max-width: 100dvw;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  form{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 2rem;
+  }
+}
+
+button {
+  padding: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #eee;
+  cursor: pointer;
+  transition: 500ms;
+  margin: 10px;
+  color: black;
+
+  &:hover {
+    background-color: black;
+    color: white;
+  }
+
+}

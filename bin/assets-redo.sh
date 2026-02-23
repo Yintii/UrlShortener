@@ -4,7 +4,7 @@ set -o errexit
 
 rails assets:clobber
 
-dart compile-sass.dart app/assets/stylesheets/styles.scss app/assets/stylesheets/styles.css
+dart compile-sass.dart app/assets/stylesheets/index.scss app/assets/stylesheets/styles.css
 
 rails assets:precompile
 rails restart

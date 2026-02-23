@@ -1,0 +1,55 @@
+input[type="email"],
+input[type="password"],
+input[type="text"],
+input[type="submit"]{
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+  width:100%;
+}
+
+input[type="submit"] {
+  background-color: #F5F2EA;
+  cursor: pointer;
+  transition: 500ms;
+  &:hover {
+    background-color: black;
+    color: white;
+  }
+}
+
+input[type="checkbox"] {
+  width: unset;
+  margin: 10px;
+}
+
+
+.styled-form {
+  input{
+    margin:5px;
+    padding:10px;
+    border-radius:5px;
+  }
+}
+
+@media only screen and (min-width: 768px){
+    main{
+        form{
+          width: 60%;
+          margin: 2rem auto;
+        }
+        form.main-page-form{
+          display: flex;
+          flex-flow:row nowrap;
+          input[type="text"]{
+            flex:9;
+          }
+          input[type="submit"]{
+            flex:1;
+            margin-top: unset;
+          }
+        }
+    }
+}

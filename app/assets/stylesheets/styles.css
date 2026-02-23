@@ -22,125 +22,6 @@ html, body {
   font-family: "Ubuntu", sans-serif;
 }
 
-h1,
-h2,
-h3 {
-  font-family: "Lobster", sans-serif;
-}
-
-.placeholder-ad {
-  border: 1px dashed black;
-  display: none;
-}
-
-.container {
-  margin: 1rem;
-  padding: 1rem;
-}
-
-.max-width-90 {
-  max-width: 90%;
-}
-
-.rounded-corners {
-  border-radius: 15px;
-}
-
-.flex {
-  display: flex;
-}
-
-.column {
-  flex-direction: column;
-}
-
-.align-center {
-  align-items: center;
-}
-
-.justify-center {
-  justify-content: center;
-}
-
-.wrap {
-  flex-wrap: wrap;
-}
-
-.flex-end {
-  justify-content: end;
-}
-
-.p-1 {
-  padding: 1rem;
-}
-
-.m-1 {
-  margin: 1rem;
-}
-
-.hidden {
-  display: none;
-}
-
-a {
-  text-decoration: none;
-}
-
-a:hover {
-  color: yellow;
-}
-
-.flash {
-  position: absolute;
-  top: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  max-width: 600px;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 100;
-}
-.flash.success {
-  border: 1px solid green;
-  box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
-  background-color: green;
-  color: white;
-}
-.flash.error {
-  border: 1px solid red;
-  box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
-  background-color: red;
-  color: white;
-}
-.flash.notice {
-  border: 1px solid yellow;
-  box-shadow: 0 0 10px rgba(255, 255, 0, 0.2);
-  background-color: yellow;
-  color: black;
-}
-.flash.alert {
-  border: 1px solid orange;
-  box-shadow: 0 0 10px rgba(255, 165, 0, 0.2);
-  background-color: orange;
-  color: white;
-}
-.flash p {
-  margin: 0;
-  font-size: 20px;
-}
-
-.styled-form input {
-  margin: 5px;
-  padding: 10px;
-  border-radius: 5px;
-}
-
 header {
   margin: 1rem;
   padding: 1rem;
@@ -235,17 +116,224 @@ header #menu #hamburger-menu:hover .hamburger-line {
   background-color: black;
 }
 
-button {
+@media only screen and (min-width: 768px) {
+  header #menu #hamburger-menu {
+    display: none;
+  }
+  header nav {
+    display: flex !important;
+    flex-flow: row nowrap !important;
+    padding: unset;
+    position: unset;
+    height: unset;
+    flex-direction: row;
+    justify-content: flex-end;
+    background-color: unset;
+  }
+  header nav #menu-x {
+    display: none;
+  }
+  header nav a {
+    color: black !important;
+    font-size: 14px;
+  }
+}
+input[type=email],
+input[type=password],
+input[type=text],
+input[type=submit] {
   padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+input[type=submit] {
+  background-color: #F5F2EA;
+  cursor: pointer;
+  transition: 500ms;
+}
+input[type=submit]:hover {
+  background-color: black;
+  color: white;
+}
+
+input[type=checkbox] {
+  width: unset;
+  margin: 10px;
+}
+
+.styled-form input {
+  margin: 5px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+@media only screen and (min-width: 768px) {
+  main form {
+    width: 60%;
+    margin: 2rem auto;
+  }
+  main form.main-page-form {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+  main form.main-page-form input[type=text] {
+    flex: 9;
+  }
+  main form.main-page-form input[type=submit] {
+    flex: 1;
+    margin-top: unset;
+  }
+}
+h1,
+h2,
+h3 {
+  font-family: "Lobster", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+a:hover {
+  color: yellow;
+}
+
+h1 {
+  font-size: 60px;
+  margin: 0;
+}
+
+span {
+  font-size: 20px;
+}
+
+main {
+  max-width: 100dvw;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+main form {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 2rem;
+}
+
+button {
+  padding: 1rem;
   border-radius: 5px;
   border: 1px solid #ccc;
   background-color: #eee;
   cursor: pointer;
   transition: 500ms;
+  margin: 10px;
+  color: black;
 }
 button:hover {
   background-color: black;
-  color: rgb(219, 219, 219);
+  color: white;
+}
+
+.placeholder-ad {
+  border: 1px dashed black;
+  display: none;
+}
+
+.container {
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.max-width-90 {
+  max-width: 90%;
+}
+
+.rounded-corners {
+  border-radius: 15px;
+}
+
+.flex {
+  display: flex;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.flex-end {
+  justify-content: end;
+}
+
+.p-1 {
+  padding: 1rem;
+}
+
+.m-1 {
+  margin: 1rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.flash {
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+.flash.success {
+  border: 1px solid green;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+  background-color: green;
+  color: white;
+}
+.flash.error {
+  border: 1px solid red;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+  background-color: red;
+  color: white;
+}
+.flash.notice {
+  border: 1px solid yellow;
+  box-shadow: 0 0 10px rgba(255, 255, 0, 0.2);
+  background-color: yellow;
+  color: black;
+}
+.flash.alert {
+  border: 1px solid orange;
+  box-shadow: 0 0 10px rgba(255, 165, 0, 0.2);
+  background-color: orange;
+  color: white;
+}
+.flash p {
+  margin: 0;
+  font-size: 20px;
 }
 
 #shortened-url {
@@ -267,11 +355,6 @@ button:hover {
   transform: translateX(-50%);
 }
 
-@media only screen and (max-width: 768px) {
-  button {
-    color: black !important;
-  }
-}
 #short-link-wrap {
   display: flex;
   flex-direction: row nowrap;
@@ -297,58 +380,6 @@ button:hover {
   color: black;
 }
 
-button {
-  padding: 1rem;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  background-color: #eee;
-  cursor: pointer;
-  transition: 500ms;
-}
-button:hover {
-  background-color: black;
-  color: white;
-}
-
-h1 {
-  font-size: 60px;
-  margin: 0;
-}
-
-span {
-  font-size: 20px;
-}
-
-main {
-  max-width: 100dvw;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-}
-main form {
-  display: flex;
-  flex-direction: column;
-  padding: 1rem 2rem;
-}
-
-input[type=text] {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  box-sizing: border-box;
-}
-
-input[type=email],
-input[type=password] {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  box-sizing: border-box;
-  width: 100%;
-}
-
 .shared-links-container {
   display: flex;
   flex-flow: column nowrap;
@@ -357,32 +388,6 @@ input[type=password] {
 }
 .shared-links-container * {
   margin: 0.5rem;
-}
-
-input[type=submit] {
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  box-sizing: border-box;
-  background-color: #F5F2EA;
-  cursor: pointer;
-  transition: 500ms;
-}
-input[type=submit]:hover {
-  background-color: black;
-  color: white;
-}
-
-input[type=checkbox] {
-  width: unset;
-  margin: 10px;
-}
-
-button {
-  margin: 10px 0;
 }
 
 @media only screen and (min-width: 768px) {
@@ -408,40 +413,5 @@ button {
   main #side-content {
     flex: 1;
     padding: 1rem;
-  }
-  main form {
-    width: 60%;
-    margin: 2rem auto;
-  }
-  main form.main-page-form {
-    display: flex;
-    flex-flow: row nowrap;
-  }
-  main form.main-page-form input[type=text] {
-    flex: 9;
-  }
-  main form.main-page-form input[type=submit] {
-    flex: 1;
-    margin-top: unset;
-  }
-  header #menu #hamburger-menu {
-    display: none;
-  }
-  header nav {
-    display: flex !important;
-    flex-flow: row nowrap !important;
-    padding: unset;
-    position: unset;
-    height: unset;
-    flex-direction: row;
-    justify-content: flex-end;
-    background-color: unset;
-  }
-  header nav #menu-x {
-    display: none;
-  }
-  header nav a {
-    color: black !important;
-    font-size: 14px;
   }
 }
