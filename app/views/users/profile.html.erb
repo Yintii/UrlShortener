@@ -8,16 +8,18 @@
     <% if @short_links.any? %>
             <% @short_links.each do |link| %>
               <div class="short-link-item">
-                <div class="original-link">
-                  <a href="<%= link.original_link %>" target="_blank" rel="noopener noreferrer">
-                    <%= truncate(link.original_link, length: 50) %>
-                  </a>
+                <div class="short-and-orig-links">
+                  <div class="original-link">
+                    <a href="<%= link.original_link %>" target="_blank" rel="noopener noreferrer">
+                      <%= truncate(link.original_link, length: 50) %>
+                    </a>
+                  </div>
+                  <div class="short-link">
+                    <%= link_to short_link_redirect_path(link.short_link) do %>
+                      https://yintii.com/<%= link.short_link %>
+                    <% end %>     
+                  </div>
                 </div>
-                <div class="short-link">
-                  <%= link_to short_link_redirect_path(link.short_link) do %>
-                    https://yintii.com/<%= link.short_link %>
-                  <% end %>     
-              </div>
                 <button class="copy-to-clipboard" data-link="https://yintii.com/<%= link.short_link %>">
                   <%= fa_icon "copy" %>
                 </button>

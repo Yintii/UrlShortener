@@ -1,0 +1,7 @@
+name: Yintii
+
+environment:
+  sdk: ^3.6.0
+
+dev_dependencies:
+  sass: ^1.97.3

@@ -1,24 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Ubuntu&display=swap');
-@import 'font-awesome';
-
-html,
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Ubuntu', sans-serif;
-  min-height: 100vh;
-}
-
-h1,
-h2,
-h3 {
-  font-family: 'Lobster', sans-serif;
-}
 
 .placeholder-ad{
   border: 1px dashed black;
-  display: block;;
+  display: none; //change for view
 }
 
 .container {

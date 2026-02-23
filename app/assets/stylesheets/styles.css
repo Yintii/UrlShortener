@@ -1,0 +1,447 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&family=Ubuntu&display=swap");
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: black;
+  background-color: white;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  min-height: 100vh;
+  overflow: hidden;
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Lobster", sans-serif;
+}
+
+.placeholder-ad {
+  border: 1px dashed black;
+  display: none;
+}
+
+.container {
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.max-width-90 {
+  max-width: 90%;
+}
+
+.rounded-corners {
+  border-radius: 15px;
+}
+
+.flex {
+  display: flex;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.flex-end {
+  justify-content: end;
+}
+
+.p-1 {
+  padding: 1rem;
+}
+
+.m-1 {
+  margin: 1rem;
+}
+
+.hidden {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: yellow;
+}
+
+.flash {
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+.flash.success {
+  border: 1px solid green;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+  background-color: green;
+  color: white;
+}
+.flash.error {
+  border: 1px solid red;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+  background-color: red;
+  color: white;
+}
+.flash.notice {
+  border: 1px solid yellow;
+  box-shadow: 0 0 10px rgba(255, 255, 0, 0.2);
+  background-color: yellow;
+  color: black;
+}
+.flash.alert {
+  border: 1px solid orange;
+  box-shadow: 0 0 10px rgba(255, 165, 0, 0.2);
+  background-color: orange;
+  color: white;
+}
+.flash p {
+  margin: 0;
+  font-size: 20px;
+}
+
+.styled-form input {
+  margin: 5px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+header {
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header nav {
+  padding: 3rem;
+  background: black;
+  color: white;
+  position: absolute;
+  top: 0;
+  right: 0;
+  justify-content: flex-start;
+  align-items: end;
+  height: 100vh;
+  transition: 1s;
+}
+header nav a {
+  padding: 0.5rem;
+}
+header nav #menu-x {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  height: 25px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 500ms;
+}
+header nav #menu-x .x-line {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: 1px solid white;
+  border-radius: 15px;
+  width: 25px;
+  height: 3px;
+  background-color: white;
+}
+header nav #menu-x .x-line:first-child {
+  transform: rotate(45deg);
+}
+header nav #menu-x .x-line:last-child {
+  transform: rotate(-45deg);
+}
+header nav a {
+  color: white;
+  font-size: 20px;
+  transition: 500ms;
+}
+header nav a:hover {
+  color: yellow;
+}
+header nav a:visited {
+  color: white;
+}
+header #brand {
+  font-size: 28px;
+  flex: 1;
+  font-family: "Lobster", sans-serif;
+}
+header #brand a:visited {
+  color: black;
+}
+header #menu {
+  flex: 1;
+}
+header #menu #hamburger-menu {
+  display: flex;
+  height: 20px;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
+  transition: 500ms;
+}
+header #menu #hamburger-menu .hamburger-line {
+  border-radius: 2px;
+  width: 25px;
+  height: 3px;
+  background-color: black;
+}
+header #menu #hamburger-menu:hover {
+  border: 1px solid black;
+}
+header #menu #hamburger-menu:hover .hamburger-line {
+  background-color: black;
+}
+
+button {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #eee;
+  cursor: pointer;
+  transition: 500ms;
+}
+button:hover {
+  background-color: black;
+  color: rgb(219, 219, 219);
+}
+
+#shortened-url {
+  padding: 1rem;
+  margin: 0 1rem;
+  background-color: white;
+  border-radius: 15px;
+}
+
+.desktop-only {
+  display: none;
+}
+
+.mobile-only .placeholder-ad {
+  margin: 0 auto;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media only screen and (max-width: 768px) {
+  button {
+    color: black !important;
+  }
+}
+#short-link-wrap {
+  display: flex;
+  flex-direction: row nowrap;
+  justify-content: center;
+  align-items: center;
+  background-color: #ccc;
+  padding: 1rem;
+  color: white;
+}
+#short-link-wrap p {
+  color: black;
+}
+
+#cta-signup {
+  font-size: 20px;
+  transition: 500ms;
+  background-color: black;
+  color: white;
+}
+#cta-signup:hover {
+  background-color: white;
+  border: 2px solid black;
+  color: black;
+}
+
+button {
+  padding: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #eee;
+  cursor: pointer;
+  transition: 500ms;
+}
+button:hover {
+  background-color: black;
+  color: white;
+}
+
+h1 {
+  font-size: 60px;
+  margin: 0;
+}
+
+span {
+  font-size: 20px;
+}
+
+main {
+  max-width: 100dvw;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+main form {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 2rem;
+}
+
+input[type=text] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+input[type=email],
+input[type=password] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.shared-links-container {
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 0 auto;
+  width: 90%;
+}
+.shared-links-container * {
+  margin: 0.5rem;
+}
+
+input[type=submit] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+  background-color: #F5F2EA;
+  cursor: pointer;
+  transition: 500ms;
+}
+input[type=submit]:hover {
+  background-color: black;
+  color: white;
+}
+
+input[type=checkbox] {
+  width: unset;
+  margin: 10px;
+}
+
+button {
+  margin: 10px 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .mobile-only {
+    display: none;
+  }
+  .desktop-only {
+    display: block;
+  }
+  .desktop-only .placeholder-ad {
+    margin: 0 auto;
+    position: relative;
+    bottom: 0;
+  }
+  main {
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 0 1rem;
+  }
+  main #main-content {
+    flex: 3;
+  }
+  main #side-content {
+    flex: 1;
+    padding: 1rem;
+  }
+  main form {
+    width: 60%;
+    margin: 2rem auto;
+  }
+  main form.main-page-form {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+  main form.main-page-form input[type=text] {
+    flex: 9;
+  }
+  main form.main-page-form input[type=submit] {
+    flex: 1;
+    margin-top: unset;
+  }
+  header #menu #hamburger-menu {
+    display: none;
+  }
+  header nav {
+    display: flex !important;
+    flex-flow: row nowrap !important;
+    padding: unset;
+    position: unset;
+    height: unset;
+    flex-direction: row;
+    justify-content: flex-end;
+    background-color: unset;
+  }
+  header nav #menu-x {
+    display: none;
+  }
+  header nav a {
+    color: black !important;
+    font-size: 14px;
+  }
+}
