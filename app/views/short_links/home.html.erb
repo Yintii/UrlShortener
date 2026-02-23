@@ -1,7 +1,7 @@
 
-  <%= form_tag(short_link_home_path, method: :post) do %>
-    <%= text_field_tag :link, params[:link], placeholder: "Enter URL to shorten" %>
-    <%= submit_tag "Shorten" %>
+  <%= form_tag(short_link_home_path, method: :post, class: "main-page-form") do %>
+    <%= text_field_tag :link, params[:link], placeholder: "EntrURL2Shrtn" %>
+    <%= submit_tag "Shrtn" %>
   <% end %>
   
   <% if params[:created_short_link] || @short_link %>

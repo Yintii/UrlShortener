@@ -16,6 +16,11 @@ h3 {
   font-family: 'Lobster', sans-serif;
 }
 
+.placeholder-ad{
+  border: 1px dashed black;
+  display: block;;
+}
+
 .container {
   margin: 1rem;
   padding: 1rem;
@@ -265,7 +270,19 @@ button {
   background-color: white;
   border-radius:15px;
 }
+.desktop-only {
+  display: none;
+}
 
+.mobile-only {
+  .placeholder-ad{
+    margin: 0 auto;
+    position: fixed;
+    bottom:0;
+    left:50%;
+    transform: translateX(-50%);
+  }
+}
 
 @media only screen and (max-width: 768px) {
   button {
@@ -273,7 +290,7 @@ button {
   }
 }
 
-//side content 100% mobile buton 30% on the right for tablet and desktop
+
 
 
 #short-link-wrap {
@@ -394,13 +411,52 @@ button {
 }
 
 @media only screen and (min-width: 768px) {
+
+  .mobile-only {
+    display: none;
+  }
+
+  .desktop-only {
+    display: block;
+    .placeholder-ad{
+      margin: 0 auto;
+      position:relative;
+      bottom:0;
+    }
+  }
+
   main {
+    display: flex;
+    flex-flow:row nowrap;
     padding: 0 1rem;
+
+    #main-content{
+      flex:3;
+    }
+
+    #side-content{
+      flex:1;
+      padding: 1rem;
+    }
+
     form{
       width: 60%;
       margin: 2rem auto;
     }
+    form.main-page-form{
+      display: flex;
+      flex-flow:row nowrap;
+      input[type="text"]{
+        flex:9;
+      }
+      input[type="submit"]{
+        flex:1;
+        margin-top: unset;
+      }
+    }
   }
+
+
 
   header{
     #menu{

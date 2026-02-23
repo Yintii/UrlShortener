@@ -53,9 +53,6 @@
           <%= link_to "Terms of Service", terms_of_service_path %>
           <%= link_to "About", about_path %>
           <% if user_signed_in? %>
-            <% if user_signed_in? %>
-              <h2 id="greeting">Hello, <%= current_user.email %></h2>
-            <% end %>
             <%= link_to "Profile", user_profile_path %>
             <%= link_to "Logout", destroy_user_session_path, method: :delete %>
           <% else %>
@@ -65,41 +62,37 @@
         </nav>
       </div>
     </header>
-
-  <main>
-    <div id="main-content">
-      <%= yield %>
-    </div>
-    <div id="side-content">
-      <% if current_page?(root_path) && !user_signed_in? %>
-        <div class="container flex column align-center p-2 rounded-corners">
-          <h2>Want to save your links?</h2>
-          <p>Make an account and we'll save your history</p>
-          <%= link_to "Sign Up", new_user_registration_path, id: "cta-signup", class: "bg-blue-yintii p-1 rounded-corners"  %>
+    <main>
+      <div id="main-content">
+        <div id="mobile-and-banner-ads">
+          <div class="desktop-only">
+            <img class="placeholder-ad" width="400" height="50" src="/assets/images/300x250.svg" alt="Advertisement Placeholder">
+          </div>
+          <div class="mobile-only">
+            <img class="placeholder-ad" width="350" height="90" src="/assets/images/728x90.svg" alt="Advertisement Placeholder">
+          </div>  
         </div>
-      <% elsif current_page?(root_path) %>
-        <div class="container flex column align-center p-2 rounded-corners">
-          <h2>Welcome back, <%= current_user.email %>!</h2>
-          <p>Check your profile to see your link history</p>
-          <%= link_to "Go to Profile", user_profile_path, id: "cta-profile", class: "bg-green-yintii p-1 rounded-corners"  %>
-        </div>
-      <% end %>
-    
-
-      <div id="ads">
-        <!-- Google AdSense Code -->
-        <ins class="adsbygoogle"
-          style="display:block"
-          data-ad-client="ca-pub-4116671122586959"
-          data-ad-slot="1234567890"
-          data-ad-format="auto"
-          data-full-width-responsive="true"></ins>
-        <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
+        <%= yield %>
+        <% if current_page?(root_path) && !user_signed_in? %>
+          <div class="container flex column align-center p-2 rounded-corners">
+            <h2>Want to save your links?</h2>
+            <p>Make an account and we'll save your history</p>
+            <%= link_to "Sign Up", new_user_registration_path, id: "cta-signup", class: "bg-blue-yintii p-1 rounded-corners"  %>
+          </div>
+        <% elsif current_page?(root_path) %>
+          <div class="container flex column align-center p-2 rounded-corners">
+            <h2>Welcome back, <%= current_user.email %>!</h2>
+            <p>Check your profile to see your link history</p>
+            <%= link_to "Go to Profile", user_profile_path, id: "cta-profile", class: "bg-green-yintii p-1 rounded-corners"  %>
+          </div>
+        <% end %>
       </div>
-    </div>  
-  </main>
+      <div id="side-content">
+        <div id="side-ads" class="desktop-only">
+          <img class="placeholder-ad" width="300" height="600" src="/assets/images/300x600.svg" alt="Advertisement Placeholder">
+        </div>
+      </div>  
+    </main>
   </body>
 </html>
 
