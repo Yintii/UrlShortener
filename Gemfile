@@ -19,6 +19,8 @@ gem "bootsnap", require: false
 
 gem "sassc-rails"
 
+gem "brakeman"
+
 gem "devise"
 gem "postmark-rails"
 
