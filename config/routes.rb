@@ -11,4 +11,8 @@ Rails.application.routes.draw do
   get '/profile', to: 'users#profile', as: 'user_profile'
   post "/", to: 'short_links#home', as: 'short_link_home' 
   get '/:short_link', to: 'short_links#home', as: 'short_link_redirect'
+  
+  # PWA routes
+  get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
+  get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 end

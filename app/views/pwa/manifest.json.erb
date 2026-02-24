@@ -1,0 +1,21 @@
+{
+  "name": "<%= Rails.application.class.module_parent_name %>",
+  "short_name": "<%= Rails.application.class.module_parent_name %>",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "description": "My Rails PWA",
+  "icons": [
+    {
+      "src": "<%= asset_path('icon-192.png') %>",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "<%= asset_path('icon-512.png') %>",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
