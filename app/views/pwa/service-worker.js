@@ -5,6 +5,8 @@ const CACHED_URLS = [
   "/manifest.json"
 ];
 
+self.addEventListener("load", (event) => {});
+
 // Install: cache core assets
 self.addEventListener("install", (event) => {
   event.waitUntil(

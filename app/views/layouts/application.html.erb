@@ -7,7 +7,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
+    <%= tag.link rel: "manifest", href: pwa_manifest_path(format: :webmanifest) %>
     <%= tag.link rel: "icon", href: "/icon.png", type: "image/png" %>
     <%= tag.link rel: "apple-touch-icon", href: "/icon.png" %>
 
