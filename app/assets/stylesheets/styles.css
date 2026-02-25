@@ -115,10 +115,10 @@ header {
   align-items: center;
 }
 header nav {
-  padding: env(safe-area-inset-top, 1rem) 3rem 3rem 3rem;
+  padding: 3rem;
   background: black;
   color: white;
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   justify-content: flex-start;
