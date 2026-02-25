@@ -98,6 +98,13 @@ html, body {
   height: 50px;
   width: 50px;
 }
+.short-link-item button.short-link-btn a {
+  color: black;
+  text-decoration: none;
+}
+.short-link-item button.short-link-btn:visited {
+  color: black;
+}
 
 header {
   margin: 1rem;
@@ -108,7 +115,8 @@ header {
   align-items: center;
 }
 header nav {
-  padding: 3rem;
+  padding-top: max(1rem, env(safe-area-inset-top));
+  padding: 0 3rem 3rem 3rem;
   background: black;
   color: white;
   position: absolute;
