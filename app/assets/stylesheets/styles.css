@@ -115,8 +115,7 @@ header {
   align-items: center;
 }
 header nav {
-  padding-top: max(1rem, env(safe-area-inset-top));
-  padding: 0 3rem 3rem 3rem;
+  padding: env(safe-area-inset-top, 1rem) 3rem 3rem 3rem;
   background: black;
   color: white;
   position: absolute;
