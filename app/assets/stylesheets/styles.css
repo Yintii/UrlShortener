@@ -72,6 +72,33 @@ html, body {
   font-size: 20px;
 }
 
+.short-link-item {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 1rem;
+  box-shadow: 5px 5px 10px #ccc;
+  align-content: center;
+}
+.short-link-item .short-and-orig-links {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 50%;
+}
+.short-link-item .short-and-orig-links .original-link,
+.short-link-item .short-and-orig-links .short-link {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.short-link-item button.short-link-btn {
+  height: 50px;
+  width: 50px;
+}
+
 header {
   margin: 1rem;
   padding: 1rem;
@@ -89,7 +116,7 @@ header nav {
   right: 0;
   justify-content: flex-start;
   align-items: end;
-  height: 100vh;
+  height: 100dvh;
   transition: 1s;
 }
 header nav a {
@@ -247,6 +274,7 @@ h3 {
 
 a {
   text-decoration: none;
+  color: black;
 }
 a:hover {
   color: yellow;
@@ -273,16 +301,6 @@ main form {
   padding: 1rem 2rem;
 }
 
-button {
-  padding: 1rem;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  background-color: #eee;
-  cursor: pointer;
-  transition: 500ms;
-  margin: 10px;
-  color: black;
-}
 button:hover {
   background-color: black;
   color: white;

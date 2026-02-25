@@ -4,6 +4,7 @@ header {
 
   border-radius: 25px;
 
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -17,7 +18,7 @@ header {
     right: 0;
     justify-content: flex-start;
     align-items: end;
-    height: 100vh;
+    height: 100dvh;
     transition: 1s;
     a{
       padding: 0.5rem;

@@ -6,6 +6,7 @@ h3 {
 
 a {
   text-decoration: none;
+  color: black;
   &:hover {
       color: yellow;
     }
@@ -33,15 +34,6 @@ main {
 }
 
 button {
-  padding: 1rem;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  background-color: #eee;
-  cursor: pointer;
-  transition: 500ms;
-  margin: 10px;
-  color: black;
-
   &:hover {
     background-color: black;
     color: white;
