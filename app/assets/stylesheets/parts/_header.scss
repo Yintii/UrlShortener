@@ -10,7 +10,8 @@ header {
   align-items: center;
 
   nav {
-    padding:3rem;
+    padding-top: max(1rem, env(safe-area-inset-top));
+    padding: 0 3rem 3rem 3rem;
     background: black;
     color: white;
     position: absolute;
