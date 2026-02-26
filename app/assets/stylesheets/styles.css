@@ -126,6 +126,11 @@ header nav {
   height: 100dvh;
   transition: 1s;
 }
+header nav .gravatar {
+  height: 40px;
+  border: 1px solid;
+  border-radius: 20px;
+}
 header nav a {
   padding: 0.5rem;
 }

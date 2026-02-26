@@ -19,6 +19,11 @@ header {
     align-items: end;
     height: 100dvh;
     transition: 1s;
+    .gravatar {
+      height: 40px;
+      border: 1px solid;
+      border-radius: 20px;
+    }
     a{
       padding: 0.5rem;
     }
