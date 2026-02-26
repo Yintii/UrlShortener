@@ -1,6 +1,5 @@
 <div id="analytics">
   <h1>Analytics for <%= link_to @short_link.short_link, @short_link.original_link %></h1>
-
   <div class="stats">
     <div class="stat">
       <span class="label">Total Clicks</span>
@@ -12,6 +11,14 @@
     </div>
   </div>
 
+  <h2>Visitor Map</h2>
+  <div data-controller="map">
+    <div data-map-target="canvas"
+         data-locations="<%= @click_locations.to_json %>"
+         style="height: 400px; width: 100%; border-radius: 8px;">
+    </div>
+  </div>
+
   <h2>Clicks Over Time</h2>
   <%= turbo_frame_tag "clicks_chart" do %>
     <div data-controller="chart">
@@ -19,7 +26,6 @@
               data-clicks="<%= @clicks_by_day.to_json %>">
       </canvas>
     </div>
-    
     <div data-controller="donut">
       <canvas data-donut-target="canvas"
               data-unique="<%= @unique_ips %>"

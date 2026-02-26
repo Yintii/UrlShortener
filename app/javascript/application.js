@@ -5,12 +5,14 @@ import NavbarController from "controllers/navbar_controller"
 import ChartController from "controllers/chart_controller"
 import DonutController from "controllers/donut_controller"
 import FlashController from "controllers/flash_controller"
+import MapController from "controllers/map_controller"
 
 const application = Application.start()
 application.register("navbar", NavbarController)
 application.register("chart", ChartController)
 application.register("donut", DonutController)
 application.register("flash", FlashController)
+application.register("map", MapController)
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {

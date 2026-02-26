@@ -10,13 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_02_23_175437) do
+ActiveRecord::Schema[7.2].define(version: 2026_02_26_213856) do
   create_table "link_clicks", force: :cascade do |t|
     t.integer "short_link_id", null: false
     t.string "ip_address"
     t.string "user_agent"
     t.string "referrer"
     t.datetime "clicked_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.string "country"
+    t.string "region"
+    t.string "city"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["clicked_at"], name: "index_link_clicks_on_clicked_at"
     t.index ["short_link_id"], name: "index_link_clicks_on_short_link_id"
   end
@@ -29,20 +34,6 @@ ActiveRecord::Schema[7.2].define(version: 2026_02_23_175437) do
     t.integer "user_id"
     t.integer "click_count", default: 0, null: false
     t.index ["user_id"], name: "index_short_links_on_user_id"
-  end
-
-  create_table "shorten_links", force: :cascade do |t|
-    t.string "givenLink"
-    t.string "shortenedLink"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "shortened_links", force: :cascade do |t|
-    t.string "givenLink"
-    t.string "shortenedLink"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
