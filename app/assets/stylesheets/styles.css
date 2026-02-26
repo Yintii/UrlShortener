@@ -27,6 +27,17 @@ html, body {
   padding: 1rem;
 }
 
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 .flash {
   position: absolute;
   top: 2rem;
@@ -42,6 +53,8 @@ html, body {
   justify-content: center;
   align-items: center;
   z-index: 100;
+  opacity: 0;
+  animation: fade 5s ease-out 1;
 }
 .flash.success {
   border: 1px solid green;
