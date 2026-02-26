@@ -1,5 +1,5 @@
 class ShortLinksController < ApplicationController
-  rate_limit to: 10, within: 1.minute, only: :home,
+  rate_limit to: 50, within: 1.minute, only: :home,
     by: -> { request.domain },
     with: -> { redirect_to root_path, alert: "Too many requests, try again in 10 minutes." }
 
