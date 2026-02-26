@@ -5,9 +5,15 @@ export default class extends Controller {
 
   connect(){
     console.log("Navbar controller connected")
+    this.menuTarget.style.right = "-263px"
   }
 
   toggle() {
-    this.menuTarget.classList.toggle("hidden")
+    this.menuTarget.style.right = this.menuTarget.classList.contains("hidden") ? "0px" : "-263px"
+    if (this.menuTarget.classList.contains("hidden")) {
+      this.menuTarget.classList.remove("hidden")
+    } else {
+      this.menuTarget.classList.add("hidden")
+    }
   }
 }

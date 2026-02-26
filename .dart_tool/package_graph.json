@@ -43,25 +43,18 @@
       ]
     },
     {
-      "name": "node_interop",
-      "version": "2.2.0",
-      "dependencies": [
-        "js"
-      ]
-    },
-    {
-      "name": "pool",
-      "version": "1.5.2",
+      "name": "watcher",
+      "version": "1.2.1",
       "dependencies": [
         "async",
-        "stack_trace"
+        "path"
       ]
     },
     {
-      "name": "native_synchronization",
-      "version": "0.3.1",
+      "name": "typed_data",
+      "version": "1.4.0",
       "dependencies": [
-        "ffi"
+        "collection"
       ]
     },
     {
@@ -77,37 +70,8 @@
       ]
     },
     {
-      "name": "source_span",
-      "version": "1.10.2",
-      "dependencies": [
-        "collection",
-        "path",
-        "term_glyph"
-      ]
-    },
-    {
-      "name": "cli_repl",
-      "version": "0.2.3",
-      "dependencies": [
-        "async",
-        "js"
-      ]
-    },
-    {
       "name": "stream_transform",
       "version": "2.1.1",
-      "dependencies": []
-    },
-    {
-      "name": "source_maps",
-      "version": "0.10.13",
-      "dependencies": [
-        "source_span"
-      ]
-    },
-    {
-      "name": "charcode",
-      "version": "1.4.0",
       "dependencies": []
     },
     {
@@ -125,11 +89,75 @@
       ]
     },
     {
+      "name": "source_span",
+      "version": "1.10.2",
+      "dependencies": [
+        "collection",
+        "path",
+        "term_glyph"
+      ]
+    },
+    {
+      "name": "source_maps",
+      "version": "0.10.13",
+      "dependencies": [
+        "source_span"
+      ]
+    },
+    {
+      "name": "pub_semver",
+      "version": "2.2.0",
+      "dependencies": [
+        "collection"
+      ]
+    },
+    {
+      "name": "protobuf",
+      "version": "6.0.0",
+      "dependencies": [
+        "collection",
+        "fixnum",
+        "meta"
+      ]
+    },
+    {
+      "name": "pool",
+      "version": "1.5.2",
+      "dependencies": [
+        "async",
+        "stack_trace"
+      ]
+    },
+    {
+      "name": "path",
+      "version": "1.9.1",
+      "dependencies": []
+    },
+    {
       "name": "package_config",
       "version": "2.2.0",
       "dependencies": [
         "path"
       ]
+    },
+    {
+      "name": "node_interop",
+      "version": "2.2.0",
+      "dependencies": [
+        "js"
+      ]
+    },
+    {
+      "name": "native_synchronization",
+      "version": "0.3.1",
+      "dependencies": [
+        "ffi"
+      ]
+    },
+    {
+      "name": "meta",
+      "version": "1.18.1",
+      "dependencies": []
     },
     {
       "name": "js",
@@ -139,9 +167,27 @@
       ]
     },
     {
-      "name": "path",
-      "version": "1.9.1",
+      "name": "http",
+      "version": "1.6.0",
+      "dependencies": [
+        "async",
+        "http_parser",
+        "meta",
+        "web"
+      ]
+    },
+    {
+      "name": "collection",
+      "version": "1.19.1",
       "dependencies": []
+    },
+    {
+      "name": "cli_repl",
+      "version": "0.2.3",
+      "dependencies": [
+        "async",
+        "js"
+      ]
     },
     {
       "name": "cli_pkg",
@@ -175,86 +221,22 @@
       ]
     },
     {
-      "name": "retry",
-      "version": "3.1.2",
+      "name": "charcode",
+      "version": "1.4.0",
       "dependencies": []
     },
     {
-      "name": "node_preamble",
-      "version": "2.0.2",
-      "dependencies": []
-    },
-    {
-      "name": "cli_util",
-      "version": "0.4.2",
-      "dependencies": [
-        "meta",
-        "path"
-      ]
-    },
-    {
-      "name": "yaml",
-      "version": "3.1.3",
+      "name": "async",
+      "version": "2.13.0",
       "dependencies": [
         "collection",
-        "source_span",
-        "string_scanner"
-      ]
-    },
-    {
-      "name": "native_stack_traces",
-      "version": "0.6.1",
-      "dependencies": [
-        "args",
-        "path"
-      ]
-    },
-    {
-      "name": "archive",
-      "version": "4.0.9",
-      "dependencies": [
-        "path",
-        "posix"
-      ]
-    },
-    {
-      "name": "posix",
-      "version": "6.5.0",
-      "dependencies": [
-        "ffi",
-        "meta",
-        "path"
-      ]
-    },
-    {
-      "name": "test_process",
-      "version": "2.1.1",
-      "dependencies": [
-        "async",
-        "meta",
-        "path",
-        "test"
-      ]
-    },
-    {
-      "name": "grinder",
-      "version": "0.9.5",
-      "dependencies": [
-        "cli_util",
-        "collection",
-        "glob",
-        "meta",
-        "path"
-      ]
-    },
-    {
-      "name": "protobuf",
-      "version": "6.0.0",
-      "dependencies": [
-        "collection",
-        "fixnum",
         "meta"
       ]
+    },
+    {
+      "name": "args",
+      "version": "2.7.0",
+      "dependencies": []
     },
     {
       "name": "fixnum",
@@ -262,104 +244,9 @@
       "dependencies": []
     },
     {
-      "name": "collection",
-      "version": "1.19.1",
-      "dependencies": []
-    },
-    {
       "name": "ffi",
       "version": "2.2.0",
       "dependencies": []
-    },
-    {
-      "name": "glob",
-      "version": "2.1.3",
-      "dependencies": [
-        "async",
-        "collection",
-        "file",
-        "path",
-        "string_scanner"
-      ]
-    },
-    {
-      "name": "file",
-      "version": "7.0.1",
-      "dependencies": [
-        "meta",
-        "path"
-      ]
-    },
-    {
-      "name": "pub_semver",
-      "version": "2.2.0",
-      "dependencies": [
-        "collection"
-      ]
-    },
-    {
-      "name": "crypto",
-      "version": "3.0.7",
-      "dependencies": [
-        "typed_data"
-      ]
-    },
-    {
-      "name": "typed_data",
-      "version": "1.4.0",
-      "dependencies": [
-        "collection"
-      ]
-    },
-    {
-      "name": "pubspec_parse",
-      "version": "1.5.0",
-      "dependencies": [
-        "checked_yaml",
-        "collection",
-        "json_annotation",
-        "pub_semver",
-        "yaml"
-      ]
-    },
-    {
-      "name": "json_annotation",
-      "version": "4.11.0",
-      "dependencies": [
-        "meta"
-      ]
-    },
-    {
-      "name": "meta",
-      "version": "1.18.1",
-      "dependencies": []
-    },
-    {
-      "name": "checked_yaml",
-      "version": "2.0.4",
-      "dependencies": [
-        "json_annotation",
-        "source_span",
-        "yaml"
-      ]
-    },
-    {
-      "name": "watcher",
-      "version": "1.2.1",
-      "dependencies": [
-        "async",
-        "path"
-      ]
-    },
-    {
-      "name": "http",
-      "version": "1.6.0",
-      "dependencies": [
-        "async",
-        "http_parser",
-        "meta",
-        "web"
-      ]
     },
     {
       "name": "web",
@@ -377,17 +264,13 @@
       ]
     },
     {
-      "name": "async",
-      "version": "2.13.0",
+      "name": "yaml",
+      "version": "3.1.3",
       "dependencies": [
         "collection",
-        "meta"
+        "source_span",
+        "string_scanner"
       ]
-    },
-    {
-      "name": "args",
-      "version": "2.7.0",
-      "dependencies": []
     },
     {
       "name": "xml",
@@ -399,11 +282,13 @@
       ]
     },
     {
-      "name": "petitparser",
-      "version": "7.0.2",
+      "name": "test_process",
+      "version": "2.1.1",
       "dependencies": [
-        "collection",
-        "meta"
+        "async",
+        "meta",
+        "path",
+        "test"
       ]
     },
     {
@@ -435,6 +320,106 @@
         "web_socket_channel",
         "webkit_inspection_protocol",
         "yaml"
+      ]
+    },
+    {
+      "name": "retry",
+      "version": "3.1.2",
+      "dependencies": []
+    },
+    {
+      "name": "pubspec_parse",
+      "version": "1.5.0",
+      "dependencies": [
+        "checked_yaml",
+        "collection",
+        "json_annotation",
+        "pub_semver",
+        "yaml"
+      ]
+    },
+    {
+      "name": "node_preamble",
+      "version": "2.0.2",
+      "dependencies": []
+    },
+    {
+      "name": "native_stack_traces",
+      "version": "0.6.1",
+      "dependencies": [
+        "args",
+        "path"
+      ]
+    },
+    {
+      "name": "grinder",
+      "version": "0.9.5",
+      "dependencies": [
+        "cli_util",
+        "collection",
+        "glob",
+        "meta",
+        "path"
+      ]
+    },
+    {
+      "name": "glob",
+      "version": "2.1.3",
+      "dependencies": [
+        "async",
+        "collection",
+        "file",
+        "path",
+        "string_scanner"
+      ]
+    },
+    {
+      "name": "crypto",
+      "version": "3.0.7",
+      "dependencies": [
+        "typed_data"
+      ]
+    },
+    {
+      "name": "cli_util",
+      "version": "0.4.2",
+      "dependencies": [
+        "meta",
+        "path"
+      ]
+    },
+    {
+      "name": "archive",
+      "version": "4.0.9",
+      "dependencies": [
+        "path",
+        "posix"
+      ]
+    },
+    {
+      "name": "petitparser",
+      "version": "7.0.2",
+      "dependencies": [
+        "collection",
+        "meta"
+      ]
+    },
+    {
+      "name": "webkit_inspection_protocol",
+      "version": "1.2.1",
+      "dependencies": [
+        "logging"
+      ]
+    },
+    {
+      "name": "web_socket_channel",
+      "version": "3.0.3",
+      "dependencies": [
+        "async",
+        "crypto",
+        "stream_channel",
+        "web",
+        "web_socket"
       ]
     },
     {
@@ -480,36 +465,23 @@
       ]
     },
     {
-      "name": "coverage",
-      "version": "1.15.0",
+      "name": "shelf_web_socket",
+      "version": "3.0.0",
       "dependencies": [
-        "args",
-        "cli_config",
-        "glob",
-        "logging",
-        "meta",
-        "package_config",
+        "shelf",
+        "stream_channel",
+        "web_socket_channel"
+      ]
+    },
+    {
+      "name": "shelf_static",
+      "version": "1.1.3",
+      "dependencies": [
+        "convert",
+        "http_parser",
+        "mime",
         "path",
-        "source_maps",
-        "stack_trace",
-        "vm_service",
-        "yaml"
-      ]
-    },
-    {
-      "name": "cli_config",
-      "version": "0.2.0",
-      "dependencies": [
-        "args",
-        "yaml"
-      ]
-    },
-    {
-      "name": "frontend_server_client",
-      "version": "4.0.0",
-      "dependencies": [
-        "async",
-        "path"
+        "shelf"
       ]
     },
     {
@@ -522,20 +494,15 @@
       ]
     },
     {
-      "name": "boolean_selector",
-      "version": "2.1.2",
+      "name": "shelf",
+      "version": "1.4.2",
       "dependencies": [
-        "source_span",
-        "string_scanner"
-      ]
-    },
-    {
-      "name": "source_map_stack_trace",
-      "version": "2.1.2",
-      "dependencies": [
+        "async",
+        "collection",
+        "http_parser",
         "path",
-        "source_maps",
-        "stack_trace"
+        "stack_trace",
+        "stream_channel"
       ]
     },
     {
@@ -547,24 +514,6 @@
         "stack_trace",
         "term_glyph",
         "test_api"
-      ]
-    },
-    {
-      "name": "webkit_inspection_protocol",
-      "version": "1.2.1",
-      "dependencies": [
-        "logging"
-      ]
-    },
-    {
-      "name": "shelf_static",
-      "version": "1.1.3",
-      "dependencies": [
-        "convert",
-        "http_parser",
-        "mime",
-        "path",
-        "shelf"
       ]
     },
     {
@@ -584,59 +533,28 @@
       ]
     },
     {
-      "name": "convert",
-      "version": "3.1.2",
+      "name": "coverage",
+      "version": "1.15.0",
       "dependencies": [
-        "typed_data"
-      ]
-    },
-    {
-      "name": "logging",
-      "version": "1.3.0",
-      "dependencies": []
-    },
-    {
-      "name": "shelf_web_socket",
-      "version": "3.0.0",
-      "dependencies": [
-        "shelf",
-        "stream_channel",
-        "web_socket_channel"
-      ]
-    },
-    {
-      "name": "mime",
-      "version": "2.0.0",
-      "dependencies": []
-    },
-    {
-      "name": "shelf",
-      "version": "1.4.2",
-      "dependencies": [
-        "async",
-        "collection",
-        "http_parser",
+        "args",
+        "cli_config",
+        "glob",
+        "logging",
+        "meta",
+        "package_config",
         "path",
+        "source_maps",
         "stack_trace",
-        "stream_channel"
+        "vm_service",
+        "yaml"
       ]
     },
     {
-      "name": "web_socket_channel",
-      "version": "3.0.3",
+      "name": "boolean_selector",
+      "version": "2.1.2",
       "dependencies": [
-        "async",
-        "crypto",
-        "stream_channel",
-        "web",
-        "web_socket"
-      ]
-    },
-    {
-      "name": "web_socket",
-      "version": "1.0.1",
-      "dependencies": [
-        "web"
+        "source_span",
+        "string_scanner"
       ]
     },
     {
@@ -658,17 +576,99 @@
       ]
     },
     {
-      "name": "_fe_analyzer_shared",
-      "version": "96.0.0",
+      "name": "json_annotation",
+      "version": "4.11.0",
+      "dependencies": [
+        "meta"
+      ]
+    },
+    {
+      "name": "checked_yaml",
+      "version": "2.0.4",
+      "dependencies": [
+        "json_annotation",
+        "source_span",
+        "yaml"
+      ]
+    },
+    {
+      "name": "file",
+      "version": "7.0.1",
       "dependencies": [
         "meta",
-        "source_span"
+        "path"
+      ]
+    },
+    {
+      "name": "posix",
+      "version": "6.5.0",
+      "dependencies": [
+        "ffi",
+        "meta",
+        "path"
+      ]
+    },
+    {
+      "name": "logging",
+      "version": "1.3.0",
+      "dependencies": []
+    },
+    {
+      "name": "web_socket",
+      "version": "1.0.1",
+      "dependencies": [
+        "web"
       ]
     },
     {
       "name": "vm_service",
       "version": "15.0.2",
       "dependencies": []
+    },
+    {
+      "name": "source_map_stack_trace",
+      "version": "2.1.2",
+      "dependencies": [
+        "path",
+        "source_maps",
+        "stack_trace"
+      ]
+    },
+    {
+      "name": "frontend_server_client",
+      "version": "4.0.0",
+      "dependencies": [
+        "async",
+        "path"
+      ]
+    },
+    {
+      "name": "mime",
+      "version": "2.0.0",
+      "dependencies": []
+    },
+    {
+      "name": "convert",
+      "version": "3.1.2",
+      "dependencies": [
+        "typed_data"
+      ]
+    },
+    {
+      "name": "cli_config",
+      "version": "0.2.0",
+      "dependencies": [
+        "args",
+        "yaml"
+      ]
+    },
+    {
+      "name": "_fe_analyzer_shared",
+      "version": "96.0.0",
+      "dependencies": [
+        "meta",
+        "source_span"
+      ]
     }
   ],
   "configVersion": 1

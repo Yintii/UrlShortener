@@ -119,8 +119,8 @@ header nav {
   background: black;
   color: white;
   position: fixed;
-  top: 0;
-  right: 0;
+  top: 0px;
+  right: -263px;
   justify-content: flex-start;
   align-items: end;
   height: 100dvh;
@@ -235,10 +235,8 @@ input[type=submit] {
 }
 
 input[type=submit] {
-  background-color: #F5F2EA;
   cursor: pointer;
   transition: 500ms;
-  color: black;
 }
 input[type=submit]:hover {
   background-color: black;
@@ -361,10 +359,6 @@ button:hover {
 
 .m-1 {
   margin: 1rem;
-}
-
-.hidden {
-  display: none;
 }
 
 #shortened-url {
