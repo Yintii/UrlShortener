@@ -13,9 +13,11 @@ input[type="submit"]{
 input[type="submit"] {
   cursor: pointer;
   transition: 500ms;
+  background-color: black;
+  color: white;
   &:hover {
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: black;
   }
 }
 

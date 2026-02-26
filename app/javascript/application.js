@@ -4,11 +4,13 @@ import { Application } from "@hotwired/stimulus"
 import NavbarController from "controllers/navbar_controller"
 import ChartController from "controllers/chart_controller"
 import DonutController from "controllers/donut_controller"
+import FlashController from "controllers/flash_controller"
 
 const application = Application.start()
 application.register("navbar", NavbarController)
 application.register("chart", ChartController)
 application.register("donut", DonutController)
+application.register("flash", FlashController)
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {

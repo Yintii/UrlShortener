@@ -130,6 +130,7 @@ header nav .gravatar {
   height: 40px;
   border: 1px solid;
   border-radius: 20px;
+  margin-right: 1rem;
 }
 header nav a {
   padding: 0.5rem;
@@ -215,6 +216,7 @@ header #menu #hamburger-menu:hover .hamburger-line {
     padding: unset;
     position: unset;
     height: unset;
+    align-items: center;
     flex-direction: row;
     justify-content: flex-end;
     background-color: unset;
@@ -242,10 +244,12 @@ input[type=submit] {
 input[type=submit] {
   cursor: pointer;
   transition: 500ms;
-}
-input[type=submit]:hover {
   background-color: black;
   color: white;
+}
+input[type=submit]:hover {
+  background-color: white;
+  color: black;
 }
 
 input[type=checkbox] {
