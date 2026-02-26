@@ -23,16 +23,16 @@
 
   <body>
     <% if flash[:notice] %>
-      <div class="flash notice"><%= flash[:notice] %></div>
+      <div class="flash notice" data-controller="flash"><%= flash[:notice] %></div>
     <% end %>
     <% if flash[:alert] %>
-      <div class="flash alert"><%= flash[:alert] %></div>
+      <div class="flash alert" data-controller="flash"><%= flash[:alert] %></div>
     <% end %>
     <% if flash[:success] %>
-      <div class="flash success"><%= flash[:success] %></div>
+      <div class="flash success" data-controller="flash"><%= flash[:success] %></div>
     <% end %>
     <% if flash[:error] %>
-      <div class="flash error"><%= flash[:error] %></div>
+      <div class="flash error" data-controller="flash"><%= flash[:error] %></div>
     <% end %>
 
     <header>
