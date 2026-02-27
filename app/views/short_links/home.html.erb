@@ -31,9 +31,10 @@
 <% if @qr_code %>
   <div id="qr-code-wrap">
     <%= @qr_code.html_safe %>
-    <a id="qr-download-btn" download="qr_code.svg">
-      Download QR Code
-    </a>
+    <%= form_tag(qr_download_path, method: :post, data: { turbo: false }) do %>
+      <%= hidden_field_tag :svg_data, @qr_code %>
+      <%= submit_tag "Download QR Code", id: "qr-download-btn" %>
+    <% end %>
   </div>
 <% end %>
 
@@ -57,16 +58,4 @@
       document.body.removeChild(tempInput);
     });
   }
-
-  document.addEventListener('DOMContentLoaded', function() {
-      const qrWrap = document.getElementById('qr-code-wrap');
-      if (qrWrap) {
-        const svg = qrWrap.querySelector('svg');
-        const downloadBtn = document.getElementById('qr-download-btn');
-        if (svg && downloadBtn) {
-          const blob = new Blob([svg.outerHTML], { type: 'image/svg+xml' });
-          downloadBtn.href = URL.createObjectURL(blob);
-        }
-      }
-  });
 </script>

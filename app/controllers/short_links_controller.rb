@@ -28,6 +28,13 @@ class ShortLinksController < ApplicationController
     end
   end
 
+  def qr_download
+    send_data params[:svg_data],
+      filename: 'qr_code.svg',
+      type: 'image/svg+xml',
+      disposition: 'attachment'
+  end
+
   private
 
   def handle_qr_code
