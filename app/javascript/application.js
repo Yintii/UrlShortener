@@ -8,6 +8,7 @@ import FlashController from "controllers/flash_controller"
 import MapController from "controllers/map_controller"
 import SubmitInputController from "controllers/submit_input_controller"
 
+
 const application = Application.start()
 application.register("navbar", NavbarController)
 application.register("chart", ChartController)

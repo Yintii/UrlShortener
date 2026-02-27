@@ -1,3 +1,23 @@
+#qr-code-wrap{
+  display:flex;
+  flex-flow:column nowrap;
+  align-items: center;
+  justify-content:center;
+  a{
+    background:black;
+    color:white;
+    padding:1rem;
+    margin-top:1rem;
+    transition: 500ms;
+    border-radius: 0px;
+    border:1px solid black;
+    &:hover{
+      border-radius: 15px;
+      background-color:white;
+      color:black;
+    }
+  }
+}
 
 .placeholder-ad{
   border: 1px dashed black;

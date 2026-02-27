@@ -1,4 +1,6 @@
 class ShortLink < ApplicationRecord
+  scope :shortened, -> { where(link_type: "shrtn") }
+  scope :qr_codes,  -> { where(link_type: "qr") }
   belongs_to :user, optional: true
   has_many :link_clicks, dependent: :destroy
   validates :original_link, format: {

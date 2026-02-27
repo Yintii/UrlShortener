@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_02_26_213856) do
+ActiveRecord::Schema[7.2].define(version: 2026_02_27_185314) do
   create_table "link_clicks", force: :cascade do |t|
     t.integer "short_link_id", null: false
     t.string "ip_address"
@@ -33,6 +33,9 @@ ActiveRecord::Schema[7.2].define(version: 2026_02_26_213856) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.integer "click_count", default: 0, null: false
+    t.string "link_type", default: "shrtn", null: false
+    t.text "qr_code_data"
+    t.index ["link_type"], name: "index_short_links_on_link_type"
     t.index ["user_id"], name: "index_short_links_on_user_id"
   end
 

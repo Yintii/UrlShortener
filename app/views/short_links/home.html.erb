@@ -18,35 +18,37 @@
   </div>
   <button type="submit" data-submit-input-target="submit">Shrtn</button>
 <% end %>
-  
+
 <% if params[:created_short_link] || @short_link %>
   <div id="short-link-wrap">
     <p id="shortened-url">http://yintii.com/<%= params[:created_short_link] || @short_link %></p>
     <button id="copy-btn" onclick="copyLink()">
-      <%= fa_icon "copy" %>
+      <i class="fa-solid fa-copy"></i>
     </button>
   </div>
 <% end %>
 
+<% if @qr_code %>
+  <div id="qr-code-wrap">
+    <%= @qr_code.html_safe %>
+    <a id="qr-download-btn" download="qr_code.svg">
+      Download QR Code
+    </a>
+  </div>
+<% end %>
 
 <script>
   function copyLink() {
     const urlElement = document.getElementById('shortened-url');
     const button = document.getElementById('copy-btn');
-    
     if (!urlElement) return;
-    
     const url = urlElement.textContent;
-    
     navigator.clipboard.writeText(url).then(() => {
       const originalText = button.innerHTML;
       button.innerHTML = 'Copied!';
-      setTimeout(() => {
-        button.innerHTML = originalText;
-      }, 2000);
+      setTimeout(() => { button.innerHTML = originalText; }, 2000);
     }).catch(err => {
       console.error('Failed to copy:', err);
-      // Fallback for older browsers
       const tempInput = document.createElement('input');
       tempInput.value = url;
       document.body.appendChild(tempInput);
@@ -54,5 +56,16 @@
       document.execCommand('copy');
       document.body.removeChild(tempInput);
     });
+  }
+
+  // Set download link for QR code SVG
+  const qrWrap = document.getElementById('qr-code-wrap');
+  if (qrWrap) {
+    const svg = qrWrap.querySelector('svg');
+    const downloadBtn = document.getElementById('qr-download-btn');
+    if (svg && downloadBtn) {
+      const blob = new Blob([svg.outerHTML], { type: 'image/svg+xml' });
+      downloadBtn.href = URL.createObjectURL(blob);
+    }
   }
 </script>
