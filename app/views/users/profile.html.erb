@@ -20,8 +20,11 @@
                     <% end %>     
                   </div>
                 </div>
+                <button class="short-link-btn" data-link="https://yintii.com/<%= link.short_link %>">
+                  <i class="fa fa-qrcode" aria-hidden="true"></i>
+                </button>
                 <%= link_to short_link_analytics_path(link) do %>
-                  <button class="short-link-btn" data-link="https://yintii.com/<%= link.short_link %>">
+                  <button class="short-link-btn">
                     <i class="fa-solid fa-chart-line"></i>
                   </button>
                 <% end %>

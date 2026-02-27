@@ -21,7 +21,9 @@ gem "sassc-rails"
 
 gem "brakeman"
 
-gem 'geocoder'
+gem "geocoder"
+
+gem "rqrcode", "~> 3.0"
 
 gem "devise"
 gem "postmark-rails"

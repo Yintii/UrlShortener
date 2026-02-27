@@ -74,14 +74,6 @@
     </header>
     <main>
       <div id="main-content">
-        <div id="mobile-and-banner-ads">
-          <div class="desktop-only">
-            <!--<img class="placeholder-ad" width="400" height="50" src="/assets/images/300x250.svg" alt="Advertisement Placeholder">-->
-          </div>
-          <div class="mobile-only">
-            <!--<img class="placeholder-ad" width="350" height="90" src="/assets/images/728x90.svg" alt="Advertisement Placeholder">-->
-          </div>  
-        </div>
         <%= yield %>
         <% if current_page?(root_path) && !user_signed_in? %>
           <div class="container flex column align-center p-2 rounded-corners">
@@ -91,11 +83,6 @@
           </div>
         <% end %>
       </div>
-      <div id="side-content">
-        <div id="side-ads" class="desktop-only">
-          <!--<img class="placeholder-ad" width="300" height="600" src="/assets/images/300x600.svg" alt="Advertisement Placeholder">-->
-        </div>
-      </div>  
     </main>
   </body>
 </html>

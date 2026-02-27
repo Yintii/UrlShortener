@@ -1,7 +1,8 @@
 input[type="email"],
 input[type="password"],
 input[type="text"],
-input[type="submit"]{
+input[type="submit"],
+button[type="submit"]{
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -10,7 +11,8 @@ input[type="submit"]{
   width:100%;
 }
 
-input[type="submit"] {
+input[type="submit"],
+button[type="submit"]{
   cursor: pointer;
   transition: 500ms;
   background-color: black;
@@ -35,6 +37,45 @@ input[type="checkbox"] {
   }
 }
 
+#shrtn-action,
+#qr-action{
+  padding:1rem;
+  border-top:2px solid #ccc;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: #eee;
+}
+#qr-action.active-action,
+#shrtn-action{
+  border-left:1px solid #ccc;
+
+}
+#shrtn-action.active-action,
+#qr-action{
+  border-right:1px solid #ccc;
+}
+
+#shrtn-action.active-action,
+#qr-action.active-action{
+  background-color:white;
+  
+}
+
+.main-page-form{
+  .action-selector{
+    position:relative;
+    bottom:-1.5px;
+  }
+  .form-wrapper{
+    padding: 1rem;
+    background-color:white;
+    border:1px solid #ccc;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-bottom:1rem;
+  }
+}
 @media only screen and (min-width: 768px){
     main{
         form{

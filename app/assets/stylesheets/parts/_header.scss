@@ -19,6 +19,7 @@ header {
     align-items: end;
     height: 100dvh;
     transition: .5s;
+    z-index: 10;
     .gravatar {
       height: 40px;
       border: 1px solid;

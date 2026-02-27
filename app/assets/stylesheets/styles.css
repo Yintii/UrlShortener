@@ -138,6 +138,7 @@ header nav {
   align-items: end;
   height: 100dvh;
   transition: 0.5s;
+  z-index: 10;
 }
 header nav .gravatar {
   height: 40px;
@@ -245,7 +246,8 @@ header #menu #hamburger-menu:hover .hamburger-line {
 input[type=email],
 input[type=password],
 input[type=text],
-input[type=submit] {
+input[type=submit],
+button[type=submit] {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -254,13 +256,15 @@ input[type=submit] {
   width: 100%;
 }
 
-input[type=submit] {
+input[type=submit],
+button[type=submit] {
   cursor: pointer;
   transition: 500ms;
   background-color: black;
   color: white;
 }
-input[type=submit]:hover {
+input[type=submit]:hover,
+button[type=submit]:hover {
   background-color: white;
   color: black;
 }
@@ -274,6 +278,44 @@ input[type=checkbox] {
   margin: 5px;
   padding: 10px;
   border-radius: 5px;
+}
+
+#shrtn-action,
+#qr-action {
+  padding: 1rem;
+  border-top: 2px solid #ccc;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: #eee;
+}
+
+#qr-action.active-action,
+#shrtn-action {
+  border-left: 1px solid #ccc;
+}
+
+#shrtn-action.active-action,
+#qr-action {
+  border-right: 1px solid #ccc;
+}
+
+#shrtn-action.active-action,
+#qr-action.active-action {
+  background-color: white;
+}
+
+.main-page-form .action-selector {
+  position: relative;
+  bottom: -1.5px;
+}
+.main-page-form .form-wrapper {
+  padding: 1rem;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-bottom: 1rem;
 }
 
 @media only screen and (min-width: 768px) {

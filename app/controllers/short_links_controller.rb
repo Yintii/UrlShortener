@@ -5,30 +5,39 @@ class ShortLinksController < ApplicationController
 
   def home
     if request.post?
+      
+      #error if not link is provided and return
       if params[:link] == ""
         flash[:error] = "You must enter a link to shorten"
         redirect_to root_path
         return
       end
-
-      @short_link = SecureRandom.hex(3)
-      @db_entry = ShortLink.new(original_link: params[:link], short_link: @short_link)
-      @db_entry.user = current_user if user_signed_in?
-
-      if @db_entry.valid?
-        begin
-          @db_entry.save
-          ActiveRecord::Base.connection.close
-          flash[:success] = "Link shortened successfully!"
-          redirect_to root_path(created_short_link: @short_link)
-          return
-        rescue ActiveRecord::RecordNotUnique
-          @short_link = SecureRandom.hex(3)
-          @db_entry.short_link = @short_link
-          retry
-        end
+      
+      #generate qr code
+      if params[:action_type] == "qr"
+        puts "qr code to be created"
+        
+      #else just shorten the link  
       else
-        flash[:error] = "Error creating short link"
+        @short_link = SecureRandom.hex(3)
+        @db_entry = ShortLink.new(original_link: params[:link], short_link: @short_link)
+        @db_entry.user = current_user if user_signed_in?
+  
+        if @db_entry.valid?
+          begin
+            @db_entry.save
+            ActiveRecord::Base.connection.close
+            flash[:success] = "Link shortened successfully!"
+            redirect_to root_path(created_short_link: @short_link)
+            return
+          rescue ActiveRecord::RecordNotUnique
+            @short_link = SecureRandom.hex(3)
+            @db_entry.short_link = @short_link
+            retry
+          end
+        else
+          flash[:error] = "Error creating short link"
+        end
       end
     end
 
