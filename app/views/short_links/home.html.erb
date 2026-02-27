@@ -32,11 +32,12 @@
   <div id="qr-code-wrap">
     <%= @qr_code.html_safe %>
     <%= form_tag(qr_download_path, method: :post, data: { turbo: false }) do %>
-      <%= hidden_field_tag :svg_data, @qr_code %>
+      <%= hidden_field_tag :short_code, params[:created_qr_code] %>
       <%= submit_tag "Download QR Code", id: "qr-download-btn" %>
     <% end %>
   </div>
 <% end %>
+
 
 <script>
   function copyLink() {
