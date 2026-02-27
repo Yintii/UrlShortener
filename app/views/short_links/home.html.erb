@@ -58,14 +58,15 @@
     });
   }
 
-  // Set download link for QR code SVG
-  const qrWrap = document.getElementById('qr-code-wrap');
-  if (qrWrap) {
-    const svg = qrWrap.querySelector('svg');
-    const downloadBtn = document.getElementById('qr-download-btn');
-    if (svg && downloadBtn) {
-      const blob = new Blob([svg.outerHTML], { type: 'image/svg+xml' });
-      downloadBtn.href = URL.createObjectURL(blob);
-    }
-  }
+  document.addEventListener('DOMContentLoaded', function() {
+      const qrWrap = document.getElementById('qr-code-wrap');
+      if (qrWrap) {
+        const svg = qrWrap.querySelector('svg');
+        const downloadBtn = document.getElementById('qr-download-btn');
+        if (svg && downloadBtn) {
+          const blob = new Blob([svg.outerHTML], { type: 'image/svg+xml' });
+          downloadBtn.href = URL.createObjectURL(blob);
+        }
+      }
+  });
 </script>
