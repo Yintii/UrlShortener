@@ -9,6 +9,7 @@ button[type="submit"]{
   font-size: 16px;
   box-sizing: border-box;
   width:100%;
+  margin-top:1rem;
 }
 
 input[type="submit"],
@@ -86,8 +87,19 @@ form.main-page-form{
   form.main-page-form{
     width:50%;
     display:flex;
+    align-content:center;
     #main-inputs{
-      flex: 5;
+      width:100%;
+    }
+    .form-wrapper{
+      display:flex;
+      input[type="text"]{
+        flex:5;
+      }
+      button[type="submit"]{
+        flex:1;
+        margin-left: 1rem;
+      }
     }
     
   }

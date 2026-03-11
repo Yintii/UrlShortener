@@ -1,4 +1,4 @@
-<%= form_tag(short_link_home_path, method: :post, class: "main-page-form", data: { controller: "submit-input" }) do %>
+<%= form_tag(short_link_home_path, method: :post, class: "main-page-form f1", data: { controller: "submit-input" }) do %>
   <div id="main-inputs">
     <div class="action-selector flex row">
       <div id="shrtn-action" data-submit-input-target="shrtnAction" class="active-action">
@@ -16,9 +16,11 @@
     </div>
     <div class="form-wrapper">
       <%= text_field_tag :link, params[:link], placeholder: "EntrURL2Shrtn", data: { "submit-input-target": "textInput" } %>
+    
+    <button type="submit" data-submit-input-target="submit">Shrtn</button>
     </div>
   </div>
-  <button type="submit" data-submit-input-target="submit">Shrtn</button>
+  
 <% end %>
 
 <% if params[:created_short_link] || @short_link %>
@@ -33,7 +35,7 @@
 <% if @qr_code %>
   <div id="qr-code-wrap">
     <%= @qr_code.html_safe %>
-    <%= form_tag(qr_download_path, method: :get, data: { turbo: false }) do %>
+    <%= form_tag(qr_download_path, method: :get, target: "_blank", data: { turbo: false }) do %>
       <%= hidden_field_tag :short_code, params[:created_qr_code] %>
       <%= submit_tag "Download QR Code", id: "qr-download-btn" %>
     <% end %>

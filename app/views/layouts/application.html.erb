@@ -73,16 +73,16 @@
       </div>
     </header>
     <main>
-      <div id="main-content">
-        <%= yield %>
-        <% if current_page?(root_path) && !user_signed_in? %>
-          <div class="container flex column align-center p-2 rounded-corners">
-            <h2>Want to save your links?</h2>
-            <p>Make an account and we'll save your history</p>
-            <%= link_to "Sign Up", new_user_registration_path, id: "cta-signup", class: "p-1 rounded-corners"  %>
-          </div>
-        <% end %>
-      </div>
+
+      <%= yield %>
+      <% if current_page?(root_path) && !user_signed_in? %>
+        <div class="container flex f1 column align-center p-2 rounded-corners">
+          <h2>Want to save your links?</h2>
+          <p>Make an account and we'll save your history</p>
+          <%= link_to "Sign Up", new_user_registration_path, id: "cta-signup", class: "p-1 rounded-corners"  %>
+        </div>
+      <% end %>
+
     </main>
   </body>
 </html>

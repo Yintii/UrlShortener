@@ -87,7 +87,7 @@ html, body {
 
 .pagination {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
@@ -162,7 +162,9 @@ html, body {
 
 .short-link-item {
   display: flex;
+  width: 250px;
   flex-flow: column nowrap;
+  align-self: center;
   padding: 1rem;
   margin: 1rem 0;
   border-radius: 1rem;
@@ -330,6 +332,7 @@ button[type=submit] {
   font-size: 16px;
   box-sizing: border-box;
   width: 100%;
+  margin-top: 1rem;
 }
 
 input[type=submit],
@@ -405,9 +408,20 @@ form.main-page-form .form-wrapper {
   form.main-page-form {
     width: 50%;
     display: flex;
+    align-content: center;
   }
   form.main-page-form #main-inputs {
+    width: 100%;
+  }
+  form.main-page-form .form-wrapper {
+    display: flex;
+  }
+  form.main-page-form .form-wrapper input[type=text] {
     flex: 5;
+  }
+  form.main-page-form .form-wrapper button[type=submit] {
+    flex: 1;
+    margin-left: 1rem;
   }
 }
 h1,
@@ -486,6 +500,10 @@ button:hover {
   display: flex;
 }
 
+.f1 {
+  flex: 1;
+}
+
 .column {
   flex-direction: column;
 }
@@ -496,6 +514,10 @@ button:hover {
 
 .justify-center {
   justify-content: center;
+}
+
+.space-around {
+  justify-content: space-around;
 }
 
 .wrap {
