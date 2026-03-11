@@ -15,8 +15,8 @@
 }
 
 .flash {
-  position: absolute;
-  top: 2rem;
+  position: fixed;
+  bottom: 2rem;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
