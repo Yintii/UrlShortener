@@ -462,6 +462,8 @@ button:hover {
   flex-flow: column nowrap;
   align-items: center;
   justify-content: center;
+  margin: 1rem;
+  padding: 1rem;
 }
 #qr-code-wrap a {
   background: black;
@@ -476,6 +478,10 @@ button:hover {
   border-radius: 15px;
   background-color: white;
   color: black;
+}
+#qr-code-wrap button {
+  padding: 1rem;
+  margin: 1rem;
 }
 
 .placeholder-ad {

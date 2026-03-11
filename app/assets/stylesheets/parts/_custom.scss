@@ -3,6 +3,8 @@
   flex-flow:column nowrap;
   align-items: center;
   justify-content:center;
+  margin:1rem;
+  padding:1rem;
   a{
     background:black;
     color:white;
@@ -16,6 +18,10 @@
       background-color:white;
       color:black;
     }
+  }
+  button{
+    padding:1rem;
+    margin:1rem;
   }
 }
 
