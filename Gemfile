@@ -23,6 +23,8 @@ gem "brakeman"
 
 gem "geocoder"
 
+gem "kaminari"
+
 gem "rqrcode", "~> 3.0"
 
 gem "devise"

@@ -2,44 +2,69 @@
   <div class="container">
     <div class="profile-header">
       <h2>Welcome, <%= @user.email %></h2>
-      <p>You have <%= @short_links.count %> shortened links</p>
+      <p>You have <%= @user.short_links.count %> shortened links</p>
     </div>
-
     <% if @short_links.any? %>
-            <% @short_links.each do |link| %>
-              <div class="short-link-item">
-                <div class="short-and-orig-links">
-                  <div class="original-link">
-                    <a href="<%= link.original_link %>" target="_blank" rel="noopener noreferrer">
-                      <%= truncate(link.original_link, length: 50) %>
-                    </a>
-                  </div>
-                  <div class="short-link">
-                    <%= link_to short_link_redirect_path(link.short_link) do %>
-                      https://yintii.com/<%= link.short_link %>
-                    <% end %>     
-                  </div>
-                </div>
-                <div class="link-option-buttons">
-                  <%= link_to qr_download_path(short_code: link.short_link), data: { turbo: false } do %>
-                  <button class="short-link-btn">
-                    <i class="fa-solid fa-qrcode"></i>
-                  </button>
-                  <% end %>
-                  <%= link_to short_link_analytics_path(link) do %>
-                    <button class="short-link-btn">
-                      <i class="fa-solid fa-chart-line"></i>
-                    </button>
-                  <% end %>
-                  <button class="short-link-btn copy-to-clipboard" data-link="https://yintii.com/<%= link.short_link %>">
-                    <i class="fa-solid fa-copy"></i>
-                  </button>
-                </div>
-              </div>
+      <% @short_links.each do |link| %>
+        <div class="short-link-item">
+          <div class="short-and-orig-links">
+            <div class="original-link">
+              <a href="<%= link.original_link %>" target="_blank" rel="noopener noreferrer">
+                <%= truncate(link.original_link, length: 50) %>
+              </a>
+            </div>
+            <div class="short-link">
+              <%= link_to short_link_redirect_path(link.short_link) do %>
+                https://yintii.com/<%= link.short_link %>
+              <% end %>
+            </div>
+          </div>
+          <div class="link-option-buttons">
+            <%= link_to qr_download_path(short_code: link.short_link), data: { turbo: false } do %>
+              <button class="short-link-btn">
+                <i class="fa-solid fa-qrcode"></i>
+              </button>
             <% end %>
-          </tbody>
-        </table>
-      </div>
+            <%= link_to short_link_analytics_path(link) do %>
+              <button class="short-link-btn">
+                <i class="fa-solid fa-chart-line"></i>
+              </button>
+            <% end %>
+            <button class="short-link-btn copy-to-clipboard" data-link="https://yintii.com/<%= link.short_link %>">
+              <i class="fa-solid fa-copy"></i>
+            </button>
+          </div>
+        </div>
+      <% end %>
+
+      <% if @short_links.total_pages > 1 %>
+        <nav class="pagination" role="navigation" aria-label="pagination">
+          <%= link_to "Previous", user_profile_path(page: @short_links.prev_page),
+              class: "pagination-previous #{'is-disabled' unless @short_links.prev_page}",
+              disabled: !@short_links.prev_page %>
+          <%= link_to "Next page", user_profile_path(page: @short_links.next_page),
+              class: "pagination-next #{'is-disabled' unless @short_links.next_page}",
+              disabled: !@short_links.next_page %>
+          <ul class="pagination-list">
+            <% kaminari_pages = (1..@short_links.total_pages).to_a %>
+            <% kaminari_pages.each do |p| %>
+              <% if p == 1 || p == @short_links.total_pages || (p - @short_links.current_page).abs <= 1 %>
+                <li>
+                  <a href="<%= user_profile_path(page: p) %>"
+                     class="pagination-link <%= 'is-current' if p == @short_links.current_page %>"
+                     aria-label="<%= p == @short_links.current_page ? "Page #{p}" : "Goto page #{p}" %>"
+                     <%= 'aria-current="page"' if p == @short_links.current_page %>>
+                    <%= p %>
+                  </a>
+                </li>
+              <% elsif p == 2 || p == @short_links.total_pages - 1 %>
+                <li><span class="pagination-ellipsis">&hellip;</span></li>
+              <% end %>
+            <% end %>
+          </ul>
+        </nav>
+      <% end %>
+
     <% else %>
       <div class="empty-state">
         <p>You haven't created any shortened links yet.</p>
@@ -47,7 +72,6 @@
       </div>
     <% end %>
   </div>
-
   <script>
     document.querySelectorAll('.copy-to-clipboard').forEach(button => {
       button.addEventListener('click', function() {
@@ -55,9 +79,7 @@
         navigator.clipboard.writeText(link).then(() => {
           const originalHTML = this.innerHTML;
           this.innerHTML = 'Copied!';
-          setTimeout(() => {
-            this.innerHTML = originalHTML;
-          }, 2000);
+          setTimeout(() => { this.innerHTML = originalHTML; }, 2000);
         });
       });
     });

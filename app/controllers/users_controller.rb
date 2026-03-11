@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   
   def profile
     @user = current_user
-    @short_links = @user.short_links
+    @short_links = @user.short_links.order(created_at: :desc).page(params[:page]).per(5)
   end
 
 end

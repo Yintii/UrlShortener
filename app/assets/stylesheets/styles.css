@@ -85,6 +85,80 @@ html, body {
   font-size: 20px;
 }
 
+.pagination {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+}
+.pagination .pagination-previous,
+.pagination .pagination-next {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 2px solid black;
+  background: white;
+  color: black;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.pagination .pagination-previous:hover:not(.is-disabled),
+.pagination .pagination-next:hover:not(.is-disabled) {
+  background: black;
+  color: white;
+}
+.pagination .pagination-previous.is-disabled,
+.pagination .pagination-next.is-disabled {
+  opacity: 0.35;
+  pointer-events: none;
+}
+.pagination .pagination-list {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.pagination .pagination-list .pagination-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  width: 38px;
+  border-radius: 0.5rem;
+  border: 2px solid black;
+  background: white;
+  color: black;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.pagination .pagination-list .pagination-link:hover {
+  background: black;
+  color: white;
+}
+.pagination .pagination-list .pagination-link.is-current {
+  background: black;
+  color: white;
+  pointer-events: none;
+}
+.pagination .pagination-list .pagination-ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  color: black;
+  font-family: "Ubuntu", sans-serif;
+}
+
 .short-link-item {
   display: flex;
   flex-flow: column nowrap;

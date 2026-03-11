@@ -55,7 +55,7 @@ class ShortLinksController < ApplicationController
     )
   
     send_data png.to_blob,
-      filename: "qr_#{record.short_link}.png",
+      filename: 'qr_code.png',
       type: 'image/png',
       disposition: 'attachment'
   end

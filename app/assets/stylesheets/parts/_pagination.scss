@@ -1,0 +1,79 @@
+.pagination {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+
+  .pagination-previous,
+  .pagination-next {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 2px solid black;
+    background: white;
+    color: black;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: background 0.15s ease, color 0.15s ease;
+
+    &:hover:not(.is-disabled) {
+      background: black;
+      color: white;
+    }
+
+    &.is-disabled {
+      opacity: 0.35;
+      pointer-events: none;
+    }
+  }
+
+  .pagination-list {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    .pagination-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 38px;
+      width: 38px;
+      border-radius: 0.5rem;
+      border: 2px solid black;
+      background: white;
+      color: black;
+      font-family: 'Ubuntu', sans-serif;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: background 0.15s ease, color 0.15s ease;
+
+      &:hover {
+        background: black;
+        color: white;
+      }
+
+      &.is-current {
+        background: black;
+        color: white;
+        pointer-events: none;
+      }
+    }
+
+    .pagination-ellipsis {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      color: black;
+      font-family: 'Ubuntu', sans-serif;
+    }
+  }
+}
