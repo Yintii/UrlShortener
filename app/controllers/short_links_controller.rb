@@ -5,7 +5,6 @@ class ShortLinksController < ApplicationController
 
   def home
     if request.post?
-
       if params[:link].blank?
         flash[:error] = "You must enter a link to shorten"
         redirect_to root_path
@@ -21,7 +20,16 @@ class ShortLinksController < ApplicationController
     elsif request.get?
       if params[:created_qr_code]
         record = ShortLink.find_by(short_link: params[:created_qr_code], link_type: "qr")
-        @qr_code = record&.qr_code_data
+        if record
+          qrcode = RQRCode::QRCode.new("https://yintii.com/#{record.short_link}")
+          @qr_code = qrcode.as_svg(
+            color: "000",
+            shape_rendering: "crispEdges",
+            module_size: 4,
+            standalone: true,
+            use_path: true
+          )
+        end
       elsif params[:short_link]
         handle_redirect
       end
@@ -29,10 +37,10 @@ class ShortLinksController < ApplicationController
   end
 
   def qr_download
-    record = ShortLink.find_by(short_link: params[:short_code], link_type: "qr")
+    record = ShortLink.find_by(short_link: params[:short_code])
     return redirect_to root_path if record.nil?
   
-    qrcode = RQRCode::QRCode.new(record.original_link)
+    qrcode = RQRCode::QRCode.new("https://yintii.com/#{record.short_link}")
     png = qrcode.as_png(
       bit_depth: 1,
       border_modules: 4,
@@ -47,16 +55,17 @@ class ShortLinksController < ApplicationController
     )
   
     send_data png.to_blob,
-      filename: 'qr_code.png',
+      filename: "qr_#{record.short_link}.png",
       type: 'image/png',
       disposition: 'attachment'
   end
-
+  
+  
   private
 
   def handle_qr_code
     require "rqrcode"
-  
+
     short_code = SecureRandom.hex(3)
     db_entry = ShortLink.new(
       original_link: params[:link],
@@ -64,18 +73,9 @@ class ShortLinksController < ApplicationController
       link_type: "qr"
     )
     db_entry.user = current_user if user_signed_in?
-  
+
     if db_entry.valid?
       begin
-        qrcode = RQRCode::QRCode.new(params[:link])
-        svg = qrcode.as_svg(
-          color: "000",
-          shape_rendering: "crispEdges",
-          module_size: 4,
-          standalone: true,
-          use_path: true
-        )
-        db_entry.qr_code_data = svg
         db_entry.save
         ActiveRecord::Base.connection.close
         flash[:success] = "QR Code generated successfully!"
@@ -130,7 +130,6 @@ class ShortLinksController < ApplicationController
     )
     ActiveRecord::Base.connection.close
 
-    # QR codes track the click but still redirect to the original link
     redirect_short_link(short_link)
   end
 

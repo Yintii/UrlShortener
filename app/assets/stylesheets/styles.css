@@ -87,9 +87,7 @@ html, body {
 
 .short-link-item {
   display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-around;
-  align-items: center;
+  flex-flow: column nowrap;
   padding: 1rem;
   margin: 1rem 0;
   border-radius: 1rem;
@@ -99,13 +97,16 @@ html, body {
 .short-link-item .short-and-orig-links {
   display: flex;
   flex-flow: column nowrap;
-  width: 50%;
+  width: 100%;
 }
 .short-link-item .short-and-orig-links .original-link,
 .short-link-item .short-and-orig-links .short-link {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+.short-link-item .link-option-buttons {
+  padding: 1rem 0;
 }
 .short-link-item button.short-link-btn {
   height: 50px;

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resource :analytics, only: [:show]
   end
   
-  post 'qr_download', to: 'short_links#qr_download', as: :qr_download
+  get 'qr_download', to: 'short_links#qr_download', as: :qr_download
   
   get '/about', to: 'static_pages#about', as: 'about'
   get '/terms', to: 'static_pages#terms', as: 'terms_of_service'

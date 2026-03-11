@@ -1,8 +1,6 @@
 .short-link-item{
     display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-around;
-    align-items: center;
+    flex-flow: column nowrap;
     padding: 1rem;
     margin: 1rem 0;
     border-radius: 1rem;
@@ -11,13 +9,17 @@
     .short-and-orig-links{
         display: flex;
         flex-flow: column nowrap;
-        width:50%;
+        width:100%;
         .original-link,
         .short-link{
             overflow:hidden; 
             white-space:nowrap; 
             text-overflow: ellipsis;
         }
+    }
+    .link-option-buttons{
+        padding:1rem 0;
+        
     }
     button.short-link-btn{
         height:50px;
