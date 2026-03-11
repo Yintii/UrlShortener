@@ -63,6 +63,10 @@ input[type="checkbox"] {
 
 form.main-page-form{
   padding: 0 1rem;
+  #main-inputs{
+    display:flex;
+    flex-flow:column nowrap;
+  }
   .action-selector{
     position:relative;
     bottom:-1.5px;
@@ -75,5 +79,16 @@ form.main-page-form{
     border-bottom-right-radius: 10px;
     border-top-right-radius: 10px;
     margin-bottom:1rem;
+  }
+}
+
+@media only screen and (min-width: 768px){
+  form.main-page-form{
+    width:50%;
+    display:flex;
+    #main-inputs{
+      flex: 5;
+    }
+    
   }
 }

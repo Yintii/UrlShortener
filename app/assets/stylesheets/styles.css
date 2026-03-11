@@ -89,6 +89,7 @@ html, body {
   display: flex;
   flex-flow: row wrap;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   margin: 1.5rem 0;
 }
@@ -382,6 +383,10 @@ input[type=checkbox] {
 form.main-page-form {
   padding: 0 1rem;
 }
+form.main-page-form #main-inputs {
+  display: flex;
+  flex-flow: column nowrap;
+}
 form.main-page-form .action-selector {
   position: relative;
   bottom: -1.5px;
@@ -396,6 +401,15 @@ form.main-page-form .form-wrapper {
   margin-bottom: 1rem;
 }
 
+@media only screen and (min-width: 768px) {
+  form.main-page-form {
+    width: 50%;
+    display: flex;
+  }
+  form.main-page-form #main-inputs {
+    flex: 5;
+  }
+}
 h1,
 h2,
 h3 {

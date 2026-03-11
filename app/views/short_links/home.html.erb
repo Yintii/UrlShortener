@@ -1,20 +1,22 @@
 <%= form_tag(short_link_home_path, method: :post, class: "main-page-form", data: { controller: "submit-input" }) do %>
-  <div class="action-selector flex row">
-    <div id="shrtn-action" data-submit-input-target="shrtnAction" class="active-action">
-      <label>
-        <%= radio_button_tag :action_type, "shrtn", true, data: { action: "change->submit-input#change", "submit-input-target": "radio" } %>
-        Shrtn
-      </label>
+  <div id="main-inputs">
+    <div class="action-selector flex row">
+      <div id="shrtn-action" data-submit-input-target="shrtnAction" class="active-action">
+        <label>
+          <%= radio_button_tag :action_type, "shrtn", true, data: { action: "change->submit-input#change", "submit-input-target": "radio" } %>
+          Shrtn
+        </label>
+      </div>
+      <div id="qr-action" data-submit-input-target="qrAction">
+        <label>
+          <%= radio_button_tag :action_type, "qr", false, data: { action: "change->submit-input#change", "submit-input-target": "radio" } %>
+          QR Code
+        </label>
+      </div>
     </div>
-    <div id="qr-action" data-submit-input-target="qrAction">
-      <label>
-        <%= radio_button_tag :action_type, "qr", false, data: { action: "change->submit-input#change", "submit-input-target": "radio" } %>
-        QR Code
-      </label>
+    <div class="form-wrapper">
+      <%= text_field_tag :link, params[:link], placeholder: "EntrURL2Shrtn", data: { "submit-input-target": "textInput" } %>
     </div>
-  </div>
-  <div class="form-wrapper">
-    <%= text_field_tag :link, params[:link], placeholder: "EntrURL2Shrtn", data: { "submit-input-target": "textInput" } %>
   </div>
   <button type="submit" data-submit-input-target="submit">Shrtn</button>
 <% end %>
