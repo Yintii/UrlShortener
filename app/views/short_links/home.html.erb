@@ -1,4 +1,5 @@
-<%= form_tag(short_link_home_path, method: :post, class: "main-page-form f1", data: { controller: "submit-input" }) do %>
+<div class="container flex column">
+  <%= form_tag(short_link_home_path, method: :post, class: "main-page-form f1", data: { controller: "submit-input" }) do %>
   <div id="main-inputs">
     <div class="action-selector flex row">
       <div id="shrtn-action" data-submit-input-target="shrtnAction" class="active-action">
@@ -43,6 +44,7 @@
 <% end %>
 
 
+</div>
 <script>
   function copyLink() {
     const urlElement = document.getElementById('shortened-url');

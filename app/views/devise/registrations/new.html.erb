@@ -5,7 +5,7 @@
   <%= render "devise/shared/error_messages", resource: resource %>
     <%= f.email_field :email, autofocus: true, placeholder: "john@shortener.com", autocomplete: "email" %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <p><em>(<%= @minimum_password_length %> characters minimum)</em></p>
     <% end %>
     <%= f.password_field :password, placeholder: "Password", autocomplete: "new-password" %>
     <%= f.password_field :password_confirmation, placeholder: "Confirm Password", autocomplete: "new-password" %>
