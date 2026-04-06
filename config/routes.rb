@@ -17,6 +17,6 @@ Rails.application.routes.draw do
   get '/profile', to: 'users#profile', as: 'user_profile'
   post "/", to: 'short_links#home', as: 'short_link_home' 
   get '/:short_link', to: 'short_links#home', as: 'short_link_redirect'
-  get "/.well-known/x402.json", to "short_links#x402_manifest"
+  get "/.well-known/x402.json", to: "short_links#x402_manifest"
 
 end
