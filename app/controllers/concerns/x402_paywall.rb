@@ -83,7 +83,8 @@ module X402Paywall
   end
 
   def chain_id
-    Rails.env.production? ? "8453" : "84532"  # base / base-sepolia
+    #Rails.env.production? ? "8453" : 
+    "84532"  # base / base-sepolia
   end
 
   def usdc_atomic(usd_amount)
