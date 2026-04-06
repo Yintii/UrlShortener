@@ -1,20 +1,20 @@
 module X402Paywall
   extend ActiveSupport::Concern
 
-  FACILITATOR_URL = "https://x402.org/facilitator"
+  FACILITATOR_URL = "https://X402.org/facilitator"
 
   included do
-    before_action :verify_x402_payment, if: :x402_protected?
+    before_action :verify_X402_payment, if: :X402_protected?
   end
 
   private
 
   # Override this in your controller to enable protection
-  def x402_protected?
+  def X402_protected?
     false
   end
 
-  def verify_x402_payment
+  def verify_X402_payment
     payment_header = request.headers["PAYMENT-SIGNATURE"]
 
     if payment_header.blank?
@@ -33,11 +33,11 @@ module X402Paywall
       version: "2",
       scheme: "exact",
       network: "eip155:#{chain_id}",
-      maxAmountRequired: usdc_atomic(x402_price),
+      maxAmountRequired: usdc_atomic(X402_price),
       resource: request.original_url,
-      description: x402_description,
+      description: X402_description,
       mimeType: "application/json",
-      payTo: ENV["x402_PAY_TO"],
+      payTo: ENV["X402_PAY_TO"],
       maxTimeoutSeconds: 600,
       asset: usdc_contract_address,
       extra: { name: "USD Coin", version: "2" }
@@ -59,9 +59,9 @@ module X402Paywall
       paymentHeader: payment_header,
       requirements: {
         network: "eip155:#{chain_id}",
-        maxAmountRequired: usdc_atomic(x402_price),
+        maxAmountRequired: usdc_atomic(X402_price),
         resource: request.original_url,
-        payTo: ENV["x402_PAY_TO"],
+        payTo: ENV["X402_PAY_TO"],
         asset: usdc_contract_address
       }
     }.to_json
@@ -69,16 +69,16 @@ module X402Paywall
     response = http.request(req)
     JSON.parse(response.body, symbolize_names: true)
   rescue => e
-    Rails.logger.error("x402 facilitator error: #{e.message}")
+    Rails.logger.error("X402 facilitator error: #{e.message}")
     { valid: false }
   end
 
   # Helpers — override these per controller as needed
-  def x402_price
+  def X402_price
     0.001  # USD
   end
 
-  def x402_description
+  def X402_description
     "Payment required"
   end
 
