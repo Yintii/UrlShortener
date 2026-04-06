@@ -78,6 +78,22 @@ class ShortLinksController < ApplicationController
     "shorten a url"
   end
   
+  def x402_manifest
+    render json: {
+      version: "1",
+      endpoints: [
+        {
+          path: "/",
+          method: "POST",
+          description: "Shorten a URL",
+          params: {link: "The url to shorten"},
+          price: "0.001 USDC",
+          returns: {short_url: "string", slug: "string"}
+        }
+      ]
+    }
+  end
+  
   private
 
   def handle_qr_code
@@ -118,16 +134,27 @@ class ShortLinksController < ApplicationController
       begin
         db_entry.save
         ActiveRecord::Base.connection.close
-        flash[:success] = "Link shortened successfully!"
-        redirect_to root_path(created_short_link: short_link)
-        return
+    
+        if x402_request?
+          render json: {
+            short_url: "https://yintii.com/#{short_link}",
+            slug: short_link
+          }, status: :ok
+        else
+          flash[:success] = "Link shortened successfully!"
+          redirect_to root_path(created_short_link: short_link)
+        end
       rescue ActiveRecord::RecordNotUnique
         short_link = SecureRandom.hex(3)
         db_entry.short_link = short_link
         retry
       end
     else
-      flash[:error] = "Error creating short link"
+      if x402_request?
+        render json: {error: "invalid link"}, status: :unprocessable_entity
+      else
+        flash[:error] = "Error creating short link"
+      end
     end
   end
 
