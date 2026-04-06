@@ -1,5 +1,8 @@
 class ShortLinksController < ApplicationController
   include X402Paywall
+  
+  skip_before_action :verify_authenticity_token, if: :x402_request?
+  
   rate_limit to: 50, within: 1.minute, only: :home,
     by: -> { request.domain },
     with: -> { redirect_to root_path, alert: "Too many requests, try again in 10 minutes." }
@@ -156,5 +159,9 @@ class ShortLinksController < ApplicationController
     redirect_to target, status: :moved_permanently, allow_other_host: true
     rescue URI::InvalidURIError
       render plain: "Invalid redirect target", status: :unprocessable_entity
+  end
+
+  def x402_request?
+    request.headers["PAYMENT-SIGNATURE"].present?
   end
 end
