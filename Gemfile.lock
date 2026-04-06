@@ -116,6 +116,13 @@ GEM
     drb (2.2.3)
     erb (6.0.2)
     erubi (1.13.1)
+    eth (0.5.13)
+      forwardable (~> 1.3)
+      keccak (~> 1.3)
+      konstructor (~> 1.0)
+      openssl (>= 2.2, < 4.0)
+      rbsecp256k1 (~> 6.0)
+      scrypt (~> 3.0)
     ffi (1.17.3-aarch64-linux-gnu)
     ffi (1.17.3-aarch64-linux-musl)
     ffi (1.17.3-arm-linux-gnu)
@@ -124,8 +131,12 @@ GEM
     ffi (1.17.3-x86_64-darwin)
     ffi (1.17.3-x86_64-linux-gnu)
     ffi (1.17.3-x86_64-linux-musl)
+    ffi-compiler (1.3.2)
+      ffi (>= 1.15.5)
+      rake
     formatador (1.2.3)
       reline
+    forwardable (1.4.0)
     geocoder (1.8.6)
       base64 (>= 0.1.0)
       csv (>= 3.0.0)
@@ -173,6 +184,8 @@ GEM
       activerecord
       kaminari-core (= 1.2.2)
     kaminari-core (1.2.2)
+    keccak (1.3.3)
+    konstructor (1.0.2)
     listen (3.10.0)
       logger
       rb-fsevent (~> 0.10, >= 0.10.3)
@@ -193,6 +206,7 @@ GEM
     matrix (0.4.3)
     method_source (1.1.0)
     mini_mime (1.1.5)
+    mini_portile2 (2.8.9)
     minitest (6.0.1)
       prism (~> 1.5)
     minitest-reporters (1.7.1)
@@ -231,7 +245,9 @@ GEM
     notiffany (0.1.3)
       nenv (~> 0.1)
       shellany (~> 0.0)
+    openssl (3.3.2)
     orm_adapter (0.5.0)
+    ostruct (0.6.3)
     pg (1.6.3)
     pg (1.6.3-aarch64-linux)
     pg (1.6.3-aarch64-linux-musl)
@@ -239,6 +255,7 @@ GEM
     pg (1.6.3-x86_64-darwin)
     pg (1.6.3-x86_64-linux)
     pg (1.6.3-x86_64-linux-musl)
+    pkg-config (1.6.5)
     postmark (1.25.1)
       json
     postmark-rails (0.22.1)
@@ -306,6 +323,10 @@ GEM
     rb-fsevent (0.11.2)
     rb-inotify (0.11.1)
       ffi (~> 1.0)
+    rbsecp256k1 (6.0.0)
+      mini_portile2 (~> 2.8)
+      pkg-config (~> 1.5)
+      rubyzip (~> 2.3)
     rdoc (7.2.0)
       erb
       psych (>= 4.0.0)
@@ -322,7 +343,7 @@ GEM
       rqrcode_core (~> 2.0)
     rqrcode_core (2.1.0)
     ruby-progressbar (1.13.0)
-    rubyzip (3.2.2)
+    rubyzip (2.4.1)
     sassc (2.4.0)
       ffi (~> 1.9)
     sassc-rails (2.1.2)
@@ -331,6 +352,9 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    scrypt (3.1.0)
+      ffi-compiler (>= 1.0, < 2.0)
+      rake (~> 13)
     securerandom (0.4.1)
     selenium-webdriver (4.41.0)
       base64 (~> 0.2)
@@ -377,6 +401,10 @@ GEM
       base64
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    x402-payments (0.1.0)
+      base64
+      eth (~> 0.5.11)
+      ostruct
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.7.5)
@@ -423,6 +451,7 @@ DEPENDENCIES
   turbo-rails
   tzinfo-data
   web-console
+  x402-payments
 
 RUBY VERSION
    ruby 3.3.1p55

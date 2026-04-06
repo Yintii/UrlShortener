@@ -32,6 +32,8 @@ gem "postmark-rails"
 
 gem "log4r"
 
+gem "x402-payments"
+
 group :production do
   gem "pg"
 end

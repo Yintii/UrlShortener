@@ -1,4 +1,5 @@
 class ShortLinksController < ApplicationController
+  include X402Paywall
   rate_limit to: 50, within: 1.minute, only: :home,
     by: -> { request.domain },
     with: -> { redirect_to root_path, alert: "Too many requests, try again in 10 minutes." }
@@ -60,6 +61,19 @@ class ShortLinksController < ApplicationController
       disposition: 'attachment'
   end
   
+  def x402_protected?
+    action_name == "home" &&
+      request.post? &&
+      params[:link].present?
+  end
+  
+  def x402_price
+    0.001 #$0.001 per link shortened
+  end
+  
+  def x402_description
+    "shorten a url"
+  end
   
   private
 
@@ -140,7 +154,7 @@ class ShortLinksController < ApplicationController
       return render plain: "Invalid redirect target", status: :unprocessable_entity
     end
     redirect_to target, status: :moved_permanently, allow_other_host: true
-  rescue URI::InvalidURIError
-    render plain: "Invalid redirect target", status: :unprocessable_entity
+    rescue URI::InvalidURIError
+      render plain: "Invalid redirect target", status: :unprocessable_entity
   end
 end
