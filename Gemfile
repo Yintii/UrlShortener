@@ -34,6 +34,8 @@ gem "log4r"
 
 gem "x402-payments"
 
+gem "dotenv-rails"
+
 group :production do
   gem "pg"
 end
